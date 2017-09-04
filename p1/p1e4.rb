@@ -9,3 +9,19 @@
 #		si el minuto está entre 45 y 55, debe decir "menos cuarto" (de la hora siguiente),
 #		y si el minuto está entre 56 y 59, debe decir "casi las" (y la hora siguiente)
 
+def tellTime(time)
+	if (0..34) === time.min then
+		hour = time.hour
+	else
+		hour = time.hour + 1
+	end
+	min = case time.min
+		when 0..10  then "en punto"
+		when 11..20 then "y cuarto"
+		when 21..34 then "y media"
+		when 35..44 then "menos veinticinco"
+		when 45..55 then "menos cuarto"
+		when 56..59 then return "Son casi las #{hour}"
+	end
+	str = "Son las #{hour} #{min}"
+end
