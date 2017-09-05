@@ -15,7 +15,7 @@ def tellTime(time)
 	else
 		hour = time.hour + 1
 	end
-	min = case time.min
+	followingTxt = case time.min
 		when 0..10  then "en punto"
 		when 11..20 then "y cuarto"
 		when 21..34 then "y media"
@@ -23,5 +23,5 @@ def tellTime(time)
 		when 45..55 then "menos cuarto"
 		when 56..59 then return "Son casi las #{hour}"
 	end
-	str = "Son las #{hour} #{min}"
+	str = "Son las #{hour} #{followingTxt}"
 end
