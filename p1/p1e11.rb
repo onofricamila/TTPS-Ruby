@@ -4,20 +4,34 @@
 #	rot13("¡Bienvenidos a la cursada 2015 de TTPS Opción Ruby!")
 #	# => "¡Ovrairavqbf n yn phefnqn 2015 qr GGCF Bcpvóa Ehol!"
 
-
-def rot13(str)
+#VERSION 1
+def rot13v1(str)
 		13.times { str.gsub!(/[a-z]/i) { |char| char.succ } }
         return str
 end
 
 
-#   POR QUÉ DA ESTO? => "¡Ovraaiiraavqbbff n yn phheeffnqn 2015 qr GGGGCCFF BBccpvóaa EEhholl!" REPITE LAS LETRAS ANTERIORES A LA M !!
+#   POR QUÉ DA ESTO? => "¡Ovraaiiraavqbbff n yn phheeffnqn 2015 qr GGGGCCFF BBccpvóaa EEhholl!" REPITE LAS LETRAS QUE REEPLAZAN POR ENCRIPTACION A LAS POSTRIORES A LA M !!
+
+
+#VERSION 2
+def nextChar(n, char)
+	if n > 0
+		return nextChar(n-1, char.succ)
+	else
+		return char
+	end
+end
+
+def rot13(str)
+	str.gsub(/[a-z]/i) { |c| nextChar(13, c)[-1] }
+end
+
 
 
 #   NOTAS:
-#   .sin el return devuelve 13
+#   .sin el return en v1 devuelve 13
 #   .Basically we’re replacing the matched portion of the string with the result of the block.
-
 
 
 #   REGEXS:

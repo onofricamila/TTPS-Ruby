@@ -1,0 +1,3 @@
+DUDAS PRACTICA 1 -
+    * E11 (el rot repite las letras posteriores a la m; en la slucion de seba no entiendo el [-1])
+    * E12 (same)
