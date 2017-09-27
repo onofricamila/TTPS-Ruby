@@ -2,7 +2,7 @@
 
 class GenericFactory
     def self.create (**args)
-        self.new(**args)
+        new(**args)
     end
 
     def initialize (**args)
