@@ -1,4 +1,6 @@
 #	Ejercicio hecho por Seba-
+#	Original --> https://github.com/SebaRaimondi/TTPS-Ruby-Practicas/tree/master/Practica-01
+
 #	11. Escribí una función llamada rot13 que encripte un string recibido como parámetro
 #	utilizando el algoritmo ROT13 (https://es.wikipedia.org/wiki/ROT13) . Por ejemplo:
 

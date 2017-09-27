@@ -1,3 +1,6 @@
+#   By Seba
+#	Original --> https://github.com/SebaRaimondi/TTPS-Ruby-Practicas/tree/master/Practica-01
+
 #	15. Investigá qué métodos provee Ruby para:
 #		1. Conocer la lista de métodos de una clase.
 #		2. Conocer la lista de métodos de instancia de una clase.

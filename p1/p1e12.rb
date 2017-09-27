@@ -1,4 +1,6 @@
 #	Ejercicio hecho por Seba-
+#	Original --> https://github.com/SebaRaimondi/TTPS-Ruby-Practicas/tree/master/Practica-01
+
 #	12. Escribí una función más genérica, parecida a la del ejercicio anterior, que reciba como
 #	parámetro un string y un número n, y que realice una rotación de n lugares de las letras
 #	del string y retorne el resultado. Por ejemplo:

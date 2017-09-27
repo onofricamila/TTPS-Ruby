@@ -1,4 +1,6 @@
 #   Ejercicio hecho por Seba-
+#	Original --> https://github.com/SebaRaimondi/TTPS-Ruby-Practicas/tree/master/Practica-01
+
 #	17. Cada nuevo término en la secuencia de Fibonacci es generado sumando los 2 términos
 #	anteriores. Los primeros 10 términos son: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55. Considerando los
 #	términos en la secuencia de Fibonacci cuyos valores no exceden los 4 millones,
