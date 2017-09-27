@@ -3,7 +3,7 @@
 # la clase que lo incluya como de instancia o como de clase. Se puede hacer eso.
 
 # Modulo - Countable
-# Aim: permitir hacer que cualquier clase cuente la cantidad de veces que los métodos de instancia definidos en ella es invocado
+# Aim: permitir hacer que cualquier clase cuente la cantidad de veces que los métodos de instancia definidos en ella son invocados
 
 # First of all: A Mixin is basically just a Module that is included into a Class.
 # When you “mixin” a Module into a Class, the Class will have access to the methods of the Module.
@@ -13,16 +13,12 @@
 # OJO: Si el módulo está en otro fichero, hay que usar 'require'
 # antes de usar el 'include' ponele.
 
-# NOTA: ¿Dónde podemos encontarnos definida una variable de instancia? Una variable de instancia se puede definir dentro o fuera de un método.
-# Vale y ahora ¿cómo puedo acceder a ellas? Sólo se puede acceder a una variable de instancia desde el exterior de un objeto a través de un método. 
-# Ahora, si a una vi le quiero dar un valor por defecto debo hacerlo si o si en un initialize ya que
-# sabemos este  metodo se ejecuta ni bien se hace un new :)
-# Sino, si las ponemos sueltas arriba aunque les este asignando un valor, cuando las lea van a ser nil
-
 module Countable
-    def initialize
-        # Creo un hash en el que cada posicion nueva se inicializa en 0.
-        @invocations = Hash.new(0)
+    # Para no tener que sobreescribir initialize
+    def invocations
+        # ||= devuelve invocations o le asigna y devuelve Hash.new(0)
+        # La primera vez devuelve y asigna Hash.new(0), todas las siguientes veces devuelve la var
+        @invocations ||= Hash.new(0)
     end
 
     module ClassMethods
@@ -37,7 +33,7 @@ module Countable
             define_method "#{sym}" do
                 # Aumento la cantidad de veces que se llamo el metodo.
                 # __method__ contiene el nombre del metodo en el que se ejecuta.
-                @invocations[__method__] += 1
+                invocations[__method__] += 1
                 
                 # Ejecuto la funcionalidad original del metodo.
                 send(:"o_#{__method__}")
@@ -54,12 +50,12 @@ module Countable
 
     # Devuelve true si fue llamado.
     def invoked?(sym)
-        @invocations[sym] > 0
+        invocations[sym] > 0
     end
 
     # Devuelve la cantidad de veces que el metodo fue llamado.
     def invoked(sym)
-        @invocations[sym]
+        invocations[sym]
     end
 end
 
@@ -75,3 +71,23 @@ class Greeter
     # Indico que quiero llevar la cuenta de veces que se invoca el método #hi
     count_invocations_of :hi
 end
+
+# pruebo
+
+# a = Greeter.new
+# b = Greeter.new
+
+# a.invoked? :hi
+# => false
+
+# b.invoked? :hi
+# => false
+
+# a.hi
+# Imprime "Hey!"
+
+# a.invoked :hi
+# => 1
+
+# b.invoked :hi
+# => 0

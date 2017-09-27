@@ -1,0 +1,15 @@
+1- Que onda lo de las vars de instancia vs "vars de instancia de clase"? Quiero saber bien donde
+puedo inicializar cada una
+
+
+EJERCICIOS -
+- 11
+    - Que onda el initialize en un modulo? Tipo si una clase tiene ejecuta el suyo y no el del modulo por el 
+    look-up ... como hago para inicializar vars de instancia por defecto en un modulo?
+
+- 12 
+    - Si en el initialize de abajo ponia solo un asterisco andaba ... que onda bien la diferencia?
+    - Si mando un new en un metodo de clase asi anda?  
+            def self.create (**args)
+                new(**args)     --> no necesito un self.new?
+            end
