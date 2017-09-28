@@ -7,8 +7,9 @@ fibonacci = Enumerator.new do |caller|
       i1, i2 = i2, i1+i2
     end
   end
-  
-  6.times { puts fibonacci.next }
+
+  puts "- Pido los primeros 10 numeros de la secuencia --> #{fibonacci.first(10)}"
+  puts "- Pido el último de los 10 numeros: #{fibonacci.first(10).last}" 
 
   # NOTA:
   # El método loop 
