@@ -13,3 +13,6 @@ EJERCICIOS -
             def self.create (**args)
                 new(**args)     --> no necesito un self.new?
             end
+
+- 15
+    - No entiendo por que imprime global y no F en f.value 
