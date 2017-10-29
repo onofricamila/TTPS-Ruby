@@ -20,6 +20,11 @@ class Array
 	    rescue LocalJumpError => e  # LocalJumpError is raised when Ruby can't yield as requested. A typical scenario is attempting to yield when no block is given:
 		return self.each    # genera un Enumerator al no recibir parametros el each
     end
+
+    # version de Pedro, ver --> https://github.com/pedrobrost/Facultad_Informatica_UNLP/blob/master/Ruby/practica2.md
+    def randomly_v3 &block
+        shuffle.each &block
+    end    
 end
 
 
