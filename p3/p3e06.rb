@@ -13,15 +13,18 @@ while cantidad < 15
 end
 
 # Luego se almacenan los números
-numeros = 1.upto(cantidad).map do
-  puts 'Ingrese un número'
-  numero = gets.to_i
-end
-
-# Y finalmente se imprime cada número dividido por su número entero inmediato anterior
 begin
+  numeros = 1.upto(cantidad).map do
+    puts 'Ingrese un número'
+    numero = gets.to_i
+  end
 
-resultado = numeros.map { |x| x / (x - 1) }
-puts 'El resultado es: %s' % resultado.join(', ')
+  # Y finalmente se imprime cada número dividido por su número entero inmediato anterior
+  resultado = numeros.map {|x| x / (x - 1)} 
+  rescue ZeroDivisionError
+    puts "Debe ingresar numeros distintos a uno!!!! Volvemos a comenzar:"
+    retry
+  else
+    puts 'El resultado es: %s' % resultado.join(', ')
 
 end
