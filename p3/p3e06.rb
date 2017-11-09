@@ -26,5 +26,10 @@ begin
     retry
   else
     puts 'El resultado es: %s' % resultado.join(', ')
-
 end
+
+  # NOTA: hago el rescue ahi y no a la altura del bloque que hace la division porque ahi solo podria
+  # informar y nada mas, (no tiene sentido retry)
+  # Si lo hago afuera donde lo hice, al levantarse la excepcion en el bloque del map y no manejarse
+  # se propaga estáticamente y tipo la manejo abajo pudiendo hacer un retry del ingreso de numeros 
+  # informando el error :)
