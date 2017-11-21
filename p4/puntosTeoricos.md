@@ -67,11 +67,38 @@ http://semver.org/
 
 ---
 
+### 6. Notas varias:
+
+* Instalamos bundle tipo global haciendo _gem install bundler_
+
+*  Inicializas un nuevo proyeto en ruby haciendo _bundle init_ en un dir vacio. Eso como que ya te crea
+ahi un Gemfile con lo basico.
+
+*  Para agregar una gema (tipo diciendo que dependes de esa en el proyecto), agregas al Gemfile una linea
+del estilo _gem 'colorputs'_; estas usando el comando _gem_. 
+
+*  Cuando creamos un archivo .rb de prueba en el dir de nuestro proyecto, que hace un require de una gema indicada en el Gemfile (particularmente ), al querer ejecutarlo haciendo _ruby prueba.rb_, aparece un error del tipo "in 'require': cannot load such file -- colorputs(LoadError)"
+
+* Al ejecutarlo haciendo _bundle exec ruby prueba.rb_, dice "Could not find gem 'colorputs' in any of the gem sources listed in your Gemfile. Run `bundle install` to install missing gems"
+ 
+*  Utilizamos el comando bundle install para instalar las dependencias del proyecto, install the dependencies specified in your Gemfile. When you run bundle install, Bundler will persist the full names and versions of all gems that you used (including dependencies of the gems specified in the Gemfile(5)) into a file called Gemfile.lock.
+**DE TODAS FORMAS ME AGREGA LAS CARPETAS BUNDLE Y VENDOR, PONIENDO LAS GEMAS QUE DEPENDO AHI, EN VENDOR/GEMS**
+
+* Al querer ejecutarlo haciendo _ruby prueba.rb_, sigue apareciendo un error del tipo "in 'require': cannot load such file -- colorputs(LoadError)"
+
+* Ahora, al ejecutarlo haciendo _bundle exec ruby prueba.rb_,FUNCIONA!!
+
+* Type _bundle list_ to see the gems installed by the bundle
+
+---
+
 ### 7. Utilizando el proyecto creado en el punto anterior como referencia, contestá las siguientes preguntas:
 
 #### a. ¿Qué finalidad tiene el archivo Gemfile?
 
 El archivo `Gemfile` es utilizado por Bundler y nos permite definir las dependencias de nuestra aplicación.
+
+http://bundler.io/man/gemfile.5.html
 
 #### b. ¿Para qué sirve la directiva source del Gemfile? ¿Cuántas pueden haber en un mismo archivo?
 
