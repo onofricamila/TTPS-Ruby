@@ -92,6 +92,47 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 
 ---
 
+### 2. How to build your first rack app
+
+1. Run in your console `gem list rack`. Does that show something like rack (1.6.1) (or any other version number)? If it doesn’t, install Rack with the command `gem install rack.`
+
+2. In a new directory rack create a file config.ru with the following content:
+
+```ruby
+class Application
+  def call(env)
+    status  = 200
+    headers = { "Content-Type" => "text/html" }
+    body    = ["Yay, your first web application! <3"]
+
+    [status, headers, body]
+  end
+end
+
+run Application.new
+```
+We define a **class Application**, and, on the last line, **create an instance of it, which we pass to the method run**. **The method ru**n is defined by Rack, and **expects to be passed something that responds to the method call**. [1]
+
+**That’s why we defined a method call on our class. This method takes one argument env.** It does not use the env (whatever that is), yet, but instead just returns the same static array whenever it is called.
+
+This array contains 3 things:
+
+*   The number 200, which represents the status code,
+*   a hash that contains a single header (the content type), and
+*   an array containing a single string, which is the body.
+
+**So the method call returns something that represents an HTTP response in Rack!**
+
+Rack makes it so that whenever there’s a request coming in (on the computer that is localhost, i.e. your own, local computer, and on the port 9292), it will turn this request into a hash env. It will then hand us this hash by calling our method call. I.e. the hash env that is passed to us as an argument contains the request information.
+
+3. This gem comes with a little executable (command line program) called `rackup`. This command looks for a file `config.ru` in the current directory, and starts a web server using it, on your local computer.
+
+Make sure you have cded to your rack directory, and then run `rackup`. 
+
+http://webapps-for-beginners.rubymonstas.org/rack/hello_world.html
+
+---
+
 ### 3. Sinatra se define como "DSL para crear aplicaciones web". ¿Qué quiere decir esto? ¿Qué es un DSL? 
 
 Domain Specific Languages: Lenguaje de programación enfocado en un dominio de aplicación en particular.
