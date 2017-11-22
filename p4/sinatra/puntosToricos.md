@@ -90,6 +90,15 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 * A Hash of headers.
 * The response body, which must respond to each.
 
+### Requisitos
+
+1. Tener instalada la gema rack
+2. En el directorio de nuestra app, tener un archivo llamado `config.ru`, que representa a la app
+4. El archivo ese config.ru debe tener una clase que iplemente el metodo `call(env)`, y luego de definir esa clase, al final del archivo debemos incuir la sentencia `run ClassName.new`
+3. Desde consola y parados en el dir de nuestra app, correr `rackup` (por defecto levanta el archivo config.ru)
+
+**NOTA:** si queres no ponerle el nombre config.ru al archivo de tu app, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer require 'rack' y abajo Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292). Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hacer ruby app.rb
+
 ---
 
 ### 2. How to build your first rack app
@@ -111,7 +120,7 @@ end
 
 run Application.new
 ```
-We define a **class Application**, and, on the last line, **create an instance of it, which we pass to the method run**. **The method ru**n is defined by Rack, and **expects to be passed something that responds to the method call**. [1]
+We define a **class Application, (notice the name could be whichever)**, and, on the last line, **create an instance of it, which we pass to the method run**. **The method ru**n is defined by Rack, and **expects to be passed something that responds to the method call**. [1]
 
 **That’s why we defined a method call on our class. This method takes one argument env.** It does not use the env (whatever that is), yet, but instead just returns the same static array whenever it is called.
 
