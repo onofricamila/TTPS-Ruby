@@ -97,7 +97,7 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 4. El archivo ese config.ru debe tener una clase que iplemente el metodo `call(env)`, y luego de definir esa clase, al final del archivo debemos incuir la sentencia `run ClassName.new`
 3. Desde consola y parados en el dir de nuestra app, correr `rackup` (por defecto levanta el archivo config.ru)
 
-**NOTA:** si queres no ponerle el nombre config.ru al archivo de tu app, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer require 'rack' y abajo Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292). Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hacer ruby app.rb
+**NOTA:** si queres no ponerle el nombre config.ru al archivo de tu app, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer require 'rack' y abajo Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292). Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hay que hacer ruby app.rb o rackup app.rb
 
 ---
 
@@ -214,6 +214,17 @@ $
 This is the most basic Sinatra application structure and is actually pretty uncommon. More commonly, Sinatra is used in a modular style encapsulated by Controller Classes and booted via the `config.ru` Rack convention.
 
 https://learn.co/lessons/what-is-sinatra
+
+---
+
+### 4. How to make your first Sinatra app
+
+1. Hacer un Gemfile que tenga `gem 'sinatra'`
+2. Parado en el dir padre de ese Gemfile, hacer desde consola `bundle install --system`, para que no se haga la carpeta vendor/bundler en el proyecto, tipo queria tener sinatra global
+3. Hacer un archivo yourFavouriteName.rb en ese mismo dir, que requiera 'sinatra' y tenga una clase que hereda de Sinatra::Base
+4. Parado en ese dir ya podes hacer `rackup yourFavouriteName.rb` o `ruby yourFavouriteName.rb`
+
+https://www.packtpub.com/books/content/quick-start-your-first-sinatra-application
 
 ---
 
