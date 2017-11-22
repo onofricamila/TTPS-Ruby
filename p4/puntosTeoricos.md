@@ -82,7 +82,7 @@ del estilo _gem 'colorputs'_; estas usando el comando _gem_.
 * Al ejecutarlo haciendo _bundle exec ruby prueba.rb_, dice "Could not find gem 'colorputs' in any of the gem sources listed in your Gemfile. Run `bundle install` to install missing gems"
  
 *  Utilizamos el comando bundle install para instalar las dependencias del proyecto, install the dependencies specified in your Gemfile. When you run bundle install, Bundler will persist the full names and versions of all gems that you used (including dependencies of the gems specified in the Gemfile(5)) into a file called Gemfile.lock.
-**DE TODAS FORMAS ME AGREGA LAS CARPETAS BUNDLE Y VENDOR, PONIENDO LAS GEMAS QUE DEPENDO AHI, EN VENDOR/GEMS**
+**DE TODAS FORMAS ME AGREGA LA CARPETA VENDOR AL PROYECTO, PONIENDO LAS GEMAS QUE DEPENDO AHI, EN VENDOR/GEMS ... POR CADA PROYECTO!! ESTA BIEN?**
 
 * Al querer ejecutarlo haciendo _ruby prueba.rb_, sigue apareciendo un error del tipo "in 'require': cannot load such file -- colorputs(LoadError)"
 
@@ -102,13 +102,19 @@ http://bundler.io/man/gemfile.5.html
 
 #### b. ¿Para qué sirve la directiva source del Gemfile? ¿Cuántas pueden haber en un mismo archivo?
 
+Sirve para indicar a donde se debe hacer el requerimiento de las gemas. Puede haber más de un source en el Gemfile. 
+
 http://bundler.io/gemfile.html
 
 #### c. Acorde a cómo agregaste la gema colorputs, ¿qué versión se instaló de la misma?  Si mañana se publicara la versión 7.3.2, ¿esta se instalaría en tu proyecto? ¿Por qué? ¿Cómo podrías limitar esto y hacer que sólo se instalen releases de la gema en las que no cambie la versión mayor de la misma?
 
-La versión que se instaló en el sistema es la última disponible de la gema. Si se publica una nueva version, esta sería instalada. La forma de evitar esto sería por ejemplo de la siguiente manera:
+La versión que se instaló en el sistema es la última disponible de la gema.Puede verse en el archivo Gemfile.lock que se instaló la versión 0.2.3, o utilizando el comando blundle show se listan las gemas y sus respectivas versiones. 
 
-`gem 'colorputs', '~>0.2'`
+Si se publica una nueva version, esta no sería instalada automaticamente. Tendrias que ejecutar en tu proyecto _bundle update_. __Nota:__ "In general, you should use [bundle install(1)][bundle-install] to install the same exact gems and versions across machines. You would use bundle update to explicitly update the version of a gem."
+
+Por otra parte, la forma de elegir de alguna manera la version a descargar para que sólo se instalen releases de la gema en las que no cambie la versión mayor de la mismasería por ejemplo de la siguiente manera:
+
+`gem 'colorputs', '~>0.2'` , which is equivalent to '>=0.2.0','<0.3.0'
 
 #### d. ¿Qué ocurrió la primera vez que ejecutaste prueba.rb? ¿Por qué?
 
@@ -119,8 +125,17 @@ No encontró el archivo de la gema solicitada.
 #### e. ¿Qué cambió al ejecutar bundle install?
 
 `bundle install` instaló la gema en el sistema, previamente especificada en el archivo `Gemfile`
+**De todas formas me dice que no la encuentra. Sera porque la instala en esa carpteta vendor del proy?**
 
 #### f. ¿Qué diferencia hay entre bundle install y bundle update?
+
+* **bundle install** : Instala las dependencias especificadas en el Gemfile.
+* **bundle update** : Actualiza las librerías que se encuentran intaladas en el proyecto.
+
+Here are the rules:
+* Always use bundle install
+* If you need to upgrade a dependency that Bundler is already managing, use bundle update <gem>.
+* Don't run bundle update unless you want all of your gems to be upgraded.
 
 *Bundler help*
 
@@ -156,7 +171,7 @@ https://www.viget.com/articles/bundler-best-practices
 
 #### g. ¿Qué ocurrió al ejecutar prueba_dos.rb de las distintas formas enunciadas? ¿Por qué? ¿Cómo modificarías el archivo prueba_dos.rb para que funcione correctamente?
 
-* `ruby prueba_dos.rb`: Error debido a que no encuentra la constante `Bundler`.
+* `ruby prueba_dos.rb`: Error debido a que no encuentra la constante `Bundler`. Dice: "prueba_dos.rb:1:in `<main>': uninitialized constant Bundler (NameError)"
 
 * `bundle exec ruby prueba_dos.rb`: Funciona debido a que `bundle exec` ejecuta el script en el contexto del bundle actual definido por `Gemfile`.
 
@@ -166,7 +181,14 @@ Para que se pueda ejecutar el script de la primer forma, bastaría con agregar l
 
 ---
 
-## Sinatra
+### 8. Desarrollá tu propia gema que englobe la funcionalidad del ejercicio 4 de la pr2
+
+http://guides.rubygems.org/make-your-own-gem/
+https://soffes.blog/how-to-build-a-ruby-gem
+
+---
+
+## Puntos teoricos Sinatra
 
 ### 1. ¿Qué es Rack? ¿Qué define? ¿Qué requisitos impone?
 
