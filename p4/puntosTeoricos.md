@@ -82,7 +82,8 @@ del estilo _gem 'colorputs'_; estas usando el comando _gem_.
 * Al ejecutarlo haciendo _bundle exec ruby prueba.rb_, dice "Could not find gem 'colorputs' in any of the gem sources listed in your Gemfile. Run `bundle install` to install missing gems"
  
 *  Utilizamos el comando bundle install para instalar las dependencias del proyecto, install the dependencies specified in your Gemfile. When you run bundle install, Bundler will persist the full names and versions of all gems that you used (including dependencies of the gems specified in the Gemfile(5)) into a file called Gemfile.lock.
-**DE TODAS FORMAS ME AGREGA LA CARPETA VENDOR AL PROYECTO, PONIENDO LAS GEMAS QUE DEPENDO AHI, EN VENDOR/GEMS ... POR CADA PROYECTO!! ESTA BIEN?**
+**COMO UNA VEZ PUSE BUNLDER INSTALL --PATH /VENDOR/BUNDLER ME AGREGA LA CARPETA VENDOR A CADA PROYECTO, PONIENDO LAS GEMAS QUE DEPENDO AHI, EN VENDOR/GEMS ... ESTA BIEN?**
+Ver --> https://stackoverflow.com/questions/9452760/rails-bundler-how-to-undo-bundle-package/14433132 
 
 * Al querer ejecutarlo haciendo _ruby prueba.rb_, sigue apareciendo un error del tipo "in 'require': cannot load such file -- colorputs(LoadError)"
 
