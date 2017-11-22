@@ -182,23 +182,49 @@ Para que se pueda ejecutar el script de la primer forma, bastaría con agregar l
 
 ---
 
-### 8. Desarrollá tu propia gema que englobe la funcionalidad del ejercicio 4 de la pr2
+### 8. Desarrollá una gema (llamada MethodCounter, por ejemplo) que empaquete toda la funcionalidad implementada en el ejercicio 11 de la práctica 2 (el módulo Countable).La forma de usarla sería algo similar a esto:
+
+```ruby
+require 'method_counter'
+
+class MiClase
+include MethodCounter::Countable
+
+def hola
+puts "Hola"
+end
+
+def chau
+puts "Chau"
+end
+
+count_invocations_of :hola, :chau
+end
+```
+**Resumen**
+* Code for your package is placed within the lib directory. The convention is to have one Ruby file with the same name as your gem, since that gets loaded when require 'hola' is run. That one file is in charge of setting up your gem’s code and API.
+
+The code inside of lib/hola.rb is pretty bare bones. It just makes sure that you can see some output from the gem.
+
+* The gemspec defines what’s in the gem, who made it, and the version of the gem. It’s also your interface to RubyGems.org. All of the information you see on a gem page (like jekyll’s) comes from the gemspec. The gemspec is also Ruby, so you can wrap scripts to generate the file names and bump the version number.
+
+* After you have created a gemspec, you can build a gem from it. Then you can install the generated gem locally to test it out.
+
+```
+% cd ~/Documentos/ruby/TTPS-Ruby/p4/gems/e8/method_counter
+% gem build method_counter.gemspec
+Successfully built RubyGem
+Name: method_counter
+Version: 0.0.0
+File: method_counter-0.0.0.gem
+
+% gem install ./method_counter-0.0.0.gem
+Successfully installed method_counter-0.0.0
+1 gem installed
+
+```
 
 http://guides.rubygems.org/make-your-own-gem/
 https://soffes.blog/how-to-build-a-ruby-gem
 
 ---
-
-## Puntos teoricos Sinatra
-
-### 1. ¿Qué es Rack? ¿Qué define? ¿Qué requisitos impone?
-
-https://medium.com/whynotio/what-is-rack-in-ruby-7e0615f1d9b6
-
-http://codefol.io/posts/What-is-Rack-A-Primer
-
----
-
-
-
-
