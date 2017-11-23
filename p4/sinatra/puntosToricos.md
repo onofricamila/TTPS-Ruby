@@ -266,5 +266,20 @@ end
 ```
 ---
 
+### 8. App Sinatra, juego del 'ahorcado'
+
+**NOTAS**
+1. redirect "" --> redirecciona al path dado. Ej: `"/partida/#{rand(list.size)}"`. Esta bueno para ponerlo en el index y tipo ante un get '/' do redirect 'blabla' end
+2. VER COMO SE TOMAN LOS DATOS PASADOS POR URL !!!! ENTRE EL DO Y END DEL METODO (POST GET ETC) PONER |var| QUE REPRESENTAN A LOS PARAMS. EJ:
+
+```ruby
+get '/partida/:id' do |id|
+  list[id.to_i].summary
+end
+```
+3. Uso de "#{}" para extrapolar codigo
+
+---
+
 
 
