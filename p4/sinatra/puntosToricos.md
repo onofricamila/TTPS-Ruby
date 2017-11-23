@@ -228,6 +228,43 @@ https://www.packtpub.com/books/content/quick-start-your-first-sinatra-applicatio
 
 ---
 
+### 6. Middlewares para Sinatra
+
+Estan como en el medio de tu app en server y lo que se muestra. En este caso, modificaria tu respuesta
+**NOTAS**
+1. Todo middleware debe estar representado por una clase (le dara el nombre al middleware)
+2. Esa clase debe tener un metodo initialize que recibe una app y se lo asigna a una var de instancia
+3. Debe tener un metodo call que recibe un env como siempre, guarda en 3 vars el resultado de mandarle call(env) a su app (v.i.), modifica la respuesta, y devuelve un nuevo array con la respuesta modificada:
+
+```ruby
+def call(env)
+      status, headers, response  = @app.call(env)
+      new_response = response.map { |c| c.gsub(/\d/,'x') }
+      [status, headers, new_response]
+end
+```
+---
+
+### 7. Implementa un middleware que modifique el header y se ejecute antes que el anterior.
+
+**NOTAS**
+1. Lo probamos haciendo: `curl -I http://localhost:9292/sum/1/2/8` para ver los headers.
+2. El orden de ejecucion de un middleware es segun que use Middleware pongo primero en la app
+3. Recordar require_relative 'file-de-middleware.rb' en el arch de la app
+4. Se agrega un header haciendo:
+
+```ruby
+
+def call(env)
+      status, headers, response  = @app.call(env)
+      # los headers son como un arreglo de headers
+      # hacer to_s !!! Siempre strings
+      headers['X-Xs-Count'] = response.to_s.count('x').to_s
+      [status, headers, response]
+end
+
+```
+---
 
 
 

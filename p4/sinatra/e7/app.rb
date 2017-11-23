@@ -1,9 +1,11 @@
 require 'sinatra'
+require_relative 'amount_of_x.rb'
 require_relative 'number_to_x.rb'
 
 class App < Sinatra::Base
 
-    # asi indico que voy a usar el middleware
+    # asi indico que voy a usar el middleware. Se ejecutan segun orden del use
+    use AmountOfX
     use NumberToX
 
     # generico
