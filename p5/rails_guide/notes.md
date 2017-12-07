@@ -161,3 +161,8 @@ Passing the article object to the method, will automagically create url for subm
 The arguments to form_with could be model objects, say, model: @article which would cause the helper to fill in the form with the fields of the object. Passing in a symbol scope (scope: :article) just creates the fields but without anything filled into them.
 
 20. Creamos action update haciendo `find` y testeando `update` como con `save`.
+
+21. Deleting resources.
+In the controller we add the action destroy which makes `@article = Article.find(params[:id])`, `@article.destroy`, and then redirects to the index by making `redirect_to articles_path`.
+In the view which has the link to delete, we put `<%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>`.
+The method: :delete and data: { confirm: 'Are you sure?' } options are used as HTML5 attributes so that when the link is clicked, Rails will first show a confirm dialog to the user, and then submit the link with method delete
