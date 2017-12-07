@@ -42,6 +42,8 @@ Post.by_status('published').recent
 
         I18n.t 'store.title'
         I18n.l Time.now
+ 
+* para probar lo del idioma -->  http://localhost:3000/?locale=en (ya quedo configurado en es-AR)
 
 
 
