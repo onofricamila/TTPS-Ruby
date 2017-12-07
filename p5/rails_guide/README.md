@@ -16,7 +16,7 @@ source --> https://stackoverflow.com/questions/34420554/there-was-an-error-while
 
 * Siempre pasarle a la vista vers de instancia, osea crearlas en el controller
 
-* <%= link_to 'Show', article_path(article) %> --> te hace un link a /articles/show/article_id
+* `<%= link_to 'Show', article_path(article) %>` --> te hace un link a /articles/show/article_id
 
 * Article class inherits from ApplicationRecord. ApplicationRecord inherits from ActiveRecord::Base which supplies a great deal of functionality to your Rails models for free, including basic database CRUD (Create, Read, Update, Destroy) operations, data validation, as well as sophisticated search support and the ability to relate multiple models to one another.
 
@@ -166,3 +166,14 @@ The arguments to form_with could be model objects, say, model: @article which wo
 In the controller we add the action destroy which makes `@article = Article.find(params[:id])`, `@article.destroy`, and then redirects to the index by making `redirect_to articles_path`.
 In the view which has the link to delete, we put `<%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>`.
 The method: :delete and data: { confirm: 'Are you sure?' } options are used as HTML5 attributes so that when the link is clicked, Rails will first show a confirm dialog to the user, and then submit the link with method delete
+
+22. Creating an additional model.
+```
+bin/rails generate model Comment commenter:string body:text article:references
+```
+
+The (:references) keyword used in the bash command is a special data type for models. It creates a new column on your database table with the provided model name appended with an _id that can hold integer values. 
+
+This is an Active Record association. Active Record associations let you easily declare the relationship between two models.You'll need to edit app/models/article.rb to add the other side of the association (in comments you already have that 'belongs_to'). Now you write: `has_many :comments`
+
+23. We run the migration `bin/rails db:migrate`. Rails is smart enough to only execute the migrations that have not already been run against the current database
