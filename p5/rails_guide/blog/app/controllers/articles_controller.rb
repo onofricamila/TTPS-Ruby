@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+    # vas a necesitar esa autentificacion para todo excepto index y show
+    http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+    
     def index
         @articles = Article.all
     end

@@ -176,4 +176,15 @@ The (:references) keyword used in the bash command is a special data type for mo
 
 This is an Active Record association. Active Record associations let you easily declare the relationship between two models.You'll need to edit app/models/article.rb to add the other side of the association (in comments you already have that 'belongs_to'). Now you write: `has_many :comments`
 
-23. We run the migration `bin/rails db:migrate`. Rails is smart enough to only execute the migrations that have not already been run against the current database
+23. We run the migration `bin/rails db:migrate`. Rails is smart enough to only execute the migrations that have not already been run against the current database.
+**If you have an instance variable @article containing an article, you can retrieve all the comments belonging to that article as an array using @article.comments.**
+
+24. Agregamos las rutas hacia comments nesteando:
+```ruby
+  # config/routes.rb
+  resources :articles do
+    resources :comments
+  end
+```
+
+25. Generate a controller `bin/rails generate controller Comments`
