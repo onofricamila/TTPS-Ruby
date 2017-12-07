@@ -8,6 +8,11 @@ source --> https://ridingwithrails.wordpress.com/2010/12/21/sqlite3-gem-error-du
 Gem Load Error is: Could not find a JavaScript runtime."__ Que pasa, we need a JS Runtime, so NodeJS is a good choice. Corrimos el comando `sudo apt-get install nodejs` y salio todo de 10.
 source --> https://stackoverflow.com/questions/34420554/there-was-an-error-while-trying-to-load-the-gem-uglifier-bundlergemrequire#comment58768810_34472412
 
+* Si usas el helper para armar un form al poner `url: resourceName_path` inmediatamente se lee el archivo routes y tipo se hace el linkeo con /resourceName segun el http verb (en caso del form esta en el template de new como el form envia por defecto parametros por post y /resourceName para POST ejecuta una accion del mismo controller llamada __create__, con los datos)
+
+* Los datos enviados a un action como por ej create por un form se acceden en el controller de la forma `params[form_scope].inspect`
+
+* Models in Rails use a singular name, and their corresponding database tables use a plural name. 
 
 ### Pasos
 1. Arranco una app en rails ejecutando en la terminal (habiendome posado en una carpeta) `rails new nombre_app` (para ver opciones al crear una app hacer `rails new -h`)
@@ -41,3 +46,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 end
 ```
+8. Trabajar las urls que se agregan en bin/rails routes con respecto a los resources agregando controllers con actions y views asociadas.
+
+9. Considerar los helpers para armar html (como un form) (se escriben directo en el template)
+
+10. Models in Rails use a singular name, and their corresponding database tables use a plural name. Rails provides a generator for creating models. Run `bin/rails generate model Article title:string text:text`. It creates 2 files: app/models/article.rb and db/migrate/YYYYMMDDHHMMSS_create_articles.rb. 
+Migrations are Ruby classes that are designed to make it simple to create and modify database tables.
+
+11. Running the migration: `in/rails db:migrate`
+
