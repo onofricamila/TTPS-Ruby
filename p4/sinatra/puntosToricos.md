@@ -82,7 +82,7 @@ Rack ships with a bunch of middlewares and Rails has a bunch of others that it a
 
 Sinatra se apoya en rack, una interface con el webserver modular.
 La capacidad más importante de rack es la de soportar middlewares: Esto es, componentes que operan entre la aplicación y el web server monitoreando o manipulando los reqs/resp HTTP proveyendo así de varios tipos de funcionalidades comunes.
-En sinatra, es simple utilizar los middlewares Rack con el método use
+En sinatra, es simple utilizar los middlewares Rack con el método `use`
 
 Rack es una gema que provee una interface entre WebServers y Frameworks basados en Ruby.
 To use Rack, provide an "app": an object that responds to the call method, taking the environment hash as a parameter, and returning an Array with three elements:
@@ -154,7 +154,7 @@ DSL es un lenguaje de programación o especificación dedicado a resolver un pro
 
 As said before, Sinatra is a Domain Specific Language implemented in Ruby that's used for writing web applications. Created by Blake Mizerany, Sinatra is Rack-based, which means it can fit into any Rack-based application stack, including Rails. It's used by companies such as Apple, BBC, GitHub, LinkedIn, and more.
 
-Essentially, Sinatra is nothing more than some pre-written methods that we can include in our applications to turn them into Ruby web applications.
+**Essentially, Sinatra is nothing more than some pre-written methods that we can include in our applications to turn them into Ruby web applications.**
 
 Unlike Ruby on Rails, which is a Full Stack Web Development Framework that provides everything needed from front to back, Sinatra is designed to be lightweight and flexible. Sinatra is designed to provide you with the bare minimum requirements and abstractions for building simple and dynamic Ruby web applications.
 

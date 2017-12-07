@@ -33,9 +33,9 @@ https://stackoverflow.com/questions/6162047/difference-between-bundle-and-gem-in
 
 Siguiendo con lo anterior ...
 
-Bundler es un manejador de dependencias. Sirve para agregar dependencias externas a un proyecto Ruby, se especifica en el Gemfile las librerías a utilizar, estas a su vez pueden especificar otras como dependencias, bundler se encarga de descargar todo lo necesario. Solo es necesario utilizar el comando bundle. Asegura que la aplicación que lo use tenga las dependencias necesarias para que se ejecute sin errores. Bundler es una gema: gem install bundler.
+Bundler es un manejador de dependencias. Sirve para agregar dependencias externas a un proyecto Ruby, se especifica en el Gemfile las librerías a utilizar, estas a su vez pueden especificar otras como dependencias, bundler se encarga de descargar todo lo necesario. Solo es necesario utilizar el comando bundle. Asegura que la aplicación que lo use tenga las dependencias necesarias para que se ejecute sin errores. `Bundler es una gema 'manejadora de gemas', que la queremos tener en el core para usar siempre: gem install bundler.`
 
-Gems es el manejador de gemas por parte del ruby core. No es lo mismo instalar una gema con bundler que con gem. Bundler es externo, mientras que gem instala en el directorio del core de ruby.
+`Gems es el manejador de gemas por parte del ruby core. No es lo mismo instalar una gema con bundler que con gem. Bundler es externo, mientras que gem instala en el directorio del core de ruby.`
 
 https://stackoverflow.com/questions/6162047/difference-between-bundle-and-gem-install
 
@@ -46,7 +46,8 @@ https://stackoverflow.com/questions/6162047/difference-between-bundle-and-gem-in
 When you install RubyGems, it adds the gem server command to your system. This is the fastest way to start hosting gems. 
 
 This will serve all your installed gems from your local machine at http://localhost:8808. If you visit this url in your browser, you’ll find that the gem server command provides an HTML documentation index.
-(Al utilizar el comando gem server se mostrará en el localhost (puerto 8808) la lista de gemas instaladas en el ruby core.)
+
+**(Al utilizar el comando gem server se mostrará en el localhost (puerto 8808) la lista de gemas instaladas en el ruby core.)**
 
 When you install new gems, they are automatically available through the built-in gem server.
 
@@ -81,7 +82,7 @@ del estilo _gem 'colorputs'_; estas usando el comando _gem_.
 
 * Al ejecutarlo haciendo _bundle exec ruby prueba.rb_, dice "Could not find gem 'colorputs' in any of the gem sources listed in your Gemfile. Run `bundle install` to install missing gems"
  
-*  Utilizamos el comando bundle install para instalar las dependencias del proyecto, install the dependencies specified in your Gemfile. When you run bundle install, Bundler will persist the full names and versions of all gems that you used (including dependencies of the gems specified in the Gemfile(5)) into a file called Gemfile.lock.
+*  Utilizamos el comando `bundle install` para instalar las dependencias del proyecto, install the dependencies specified in your Gemfile. When you run bundle install, Bundler will persist the full names and versions of all gems that you used (including dependencies of the gems specified in the Gemfile(5)) into a file called Gemfile.lock.
 **COMO UNA VEZ PUSE BUNLDER INSTALL --PATH /VENDOR/BUNDLER ME AGREGA LA CARPETA VENDOR A CADA PROYECTO, PONIENDO LAS GEMAS QUE DEPENDO AHI, EN VENDOR/GEMS ... ESTA BIEN?**
 Ver --> https://stackoverflow.com/questions/9452760/rails-bundler-how-to-undo-bundle-package/14433132 
 
@@ -170,7 +171,7 @@ You would use bundle update to explicitly update the version of a gem.
 
 https://www.viget.com/articles/bundler-best-practices
 
-#### g. ¿Qué ocurrió al ejecutar prueba_dos.rb de las distintas formas enunciadas? ¿Por qué? ¿Cómo modificarías el archivo prueba_dos.rb para que funcione correctamente?
+#### g. ¿Qué ocurrió al ejecutar prueba-dos.rb de las distintas formas enunciadas? ¿Por qué? ¿Cómo modificarías el archivo prueba_dos.rb para que funcione correctamente?
 
 * `ruby prueba_dos.rb`: Error debido a que no encuentra la constante `Bundler`. Dice: "prueba_dos.rb:1:in `<main>': uninitialized constant Bundler (NameError)"
 
