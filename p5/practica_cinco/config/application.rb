@@ -16,3 +16,10 @@ module PracticaCinco
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# para cambiar el locale, pr 5
+# config.i18n.default_locale = :'es-AR' 
+Rails.application.configure do
+  config.time_zone = 'Buenos Aires' 
+  config.i18n.default_locale = :'es-AR' 
+end
