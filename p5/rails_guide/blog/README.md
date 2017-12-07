@@ -1,5 +1,9 @@
 # README
 
+### Blog reail app from rails official tutorial guide.
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
