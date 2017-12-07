@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :offices
+  resources :employees
   get 'polite/salute'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'polite#salute'
 end

@@ -1,0 +1,17 @@
+<%= form_with(model: offiz, local: true) do |form| %>
+  <% if offiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offiz.errors.count, "error") %> prohibited this offiz from being saved:</h2>
+
+      <ul>
+      <% offiz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
