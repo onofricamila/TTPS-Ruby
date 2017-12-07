@@ -151,3 +151,13 @@ Validations are covered in detail in Active Record Validations.
 We check if there are any errors with @article.errors.any?, and in that case we show a list of all errors with @article.errors.full_messages.
 
 pluralize is a rails helper that takes a number and a string as its arguments. If the number is greater than one, the string will be automatically pluralized.
+
+19. Focus on editing a resource.
+In the conreroller, we add the edit action with `@article = Article.find(params[:id])`. Passing the article object to the method, will automagically create url for submitting the edited article form. 
+In the related view, we put a form like the new one but coding `<%= form_with(model: @article) do |form| %>`. This will automatically fill the fields.
+
+Passing the article object to the method, will automagically create url for submitting the edited article form. This option tells Rails that we want this form to be submitted via the PATCH HTTP method which is the HTTP method you're expected to use to update resources according to the REST protocol.
+
+The arguments to form_with could be model objects, say, model: @article which would cause the helper to fill in the form with the fields of the object. Passing in a symbol scope (scope: :article) just creates the fields but without anything filled into them.
+
+20. Creamos action update haciendo `find` y testeando `update` como con `save`.
