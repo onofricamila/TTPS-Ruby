@@ -1,24 +1,13 @@
-# README
+# No es el README.md a presentar con el tp. Pongo notas para mi.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Cuando instale devise salio esto en consola. NO se si voy a usar esa view o no.
 
-Things you may want to cover:
+    3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
 
-* Ruby version
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 
-* System dependencies
+    4. You can copy Devise views (for customization) to your app by running:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+       rails g devise:views
