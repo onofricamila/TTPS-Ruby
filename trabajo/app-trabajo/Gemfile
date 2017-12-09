@@ -60,3 +60,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # for auth
 gem 'devise'
+
+# for styling
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+
+# js library
+gem 'jquery-rails'
+
+# icons
+gem "font-awesome-rails"
