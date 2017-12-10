@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       
       <!-- Brand -->
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">TTPS - Managment App</a>
     
       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -24,17 +24,24 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <!-- Links -->
         <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') %>        
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to('Login', new_user_session_path, class: 'nav-link')  %>  
+            </li>
+          <% end %>
+
           <li class="nav-item">
             <a class="nav-link" href="#">Link 1</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link 2</a>
           </li>
       
           <!-- Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Dropdown link
+              Actions
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Link 1</a>
