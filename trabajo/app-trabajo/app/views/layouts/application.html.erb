@@ -13,7 +13,9 @@
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       
       <!-- Brand -->
-      <a class="navbar-brand" href="#">TTPS - Managment App</a>
+      <a class="navbar-brand" href="<%= home_index_url %>">
+         TTPS - Managment App
+      </a>
     
       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -24,6 +26,14 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <!-- Links -->
         <ul class="navbar-nav">
+          
+          <li class="nav-item">
+          <!-- considerar clase para a solamente "btn btn-lg btn-social btn-github" -->
+            <a class="nav-link" href="<%= home_index_url %>">
+                <i class="fa fa-home"></i> Home
+            </a>
+          </li>
+        
           <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') %>        
@@ -35,13 +45,13 @@
           <% end %>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Link 1</a>
+            <a class="nav-link" href="#">Static Link</a>
           </li>
       
           <!-- Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Actions
+            <i class="fa fa-chevron-circle-down"></i> Actions
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Link 1</a>
@@ -68,7 +78,7 @@
     <!-- footer -->
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Trabajo final TTPS-Ruby, por Camila Onofri | <%= Time.now.year %> </span>
+        <span class="text-muted">Trabajo final para la asignatura TTPS-Ruby, por Camila Onofri | Año <%= Time.now.year %> </span>
       </div>
     </footer>
 

@@ -15,6 +15,9 @@
 /* for bootstrap */
 @import "bootstrap";
 
+/* for getting icons */
+@import "font-awesome";
+
 /* Sticky footer styles ------------------------------------------------- */
 html {
   position: relative;
@@ -41,6 +44,12 @@ a{
 /* for all main containers */
 .beyond-navbar{
   margin-top: 50px;
+  text-align: center!important;
 }
 
+/* ruby icon */
+.ruby-img{
+  width: 100px ;
+  margin-right: -25px;
+}
   
