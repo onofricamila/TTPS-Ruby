@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <b>Title:</b>
   <%= @exam.title %>
 </p>
 
 <p>
-  <strong>Passing score:</strong>
+  <b>Passing score:</b>
   <%= @exam.passing_score %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <b>Date:</b>
   <%= @exam.date %>
 </p>
 
-<p>
-  <strong>Course:</strong>
-  <%= @exam.course %>
-</p>
 
-<%= link_to 'Edit', edit_exam_path(@exam) %> |
-<%= link_to 'Back', exams_path %>
+<%= link_to 'Edit', edit_course_exam_path(@exam.course, @exam) %> |
+<%= link_to 'Back', course_exams_path(@exam.course) %>

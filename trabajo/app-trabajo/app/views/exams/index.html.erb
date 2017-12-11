@@ -1,33 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Exams</h1>
+<h1>Listing exams</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Passing score</th>
-      <th>Date</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
+    <th>Title</th>
+    <th>Passing score</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-  <tbody>
-    <% @exams.each do |exam| %>
-      <tr>
-        <td><%= exam.title %></td>
-        <td><%= exam.passing_score %></td>
-        <td><%= exam.date %></td>
-        <td><%= exam.course %></td>
-        <td><%= link_to 'Show', exam %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<% @exams.each do |exam| %>
+  <tr>
+    <td><%= exam.title %></td>
+    <td><%= exam.passing_score %></td>
+    <td><%= exam.date %></td>
+    <td><%= link_to 'Show', [exam.course, exam] %></td>
+    <td><%= link_to 'Edit', edit_course_exam_path(exam.course, exam) %></td>
+    <td><%= link_to 'Destroy', [exam.course, exam], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
 </table>
 
-<br>
+<br />
 
-<%= link_to 'New Exam', new_exam_path %>
+<%= link_to 'New Exam', new_course_exam_path(params[:course_id]) %>

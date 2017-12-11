@@ -70,4 +70,5 @@ gem 'jquery-rails'
 # icons
 gem "font-awesome-rails"
 
-# int
+# for nesting resources correctly
+gem 'nested_scaffold'

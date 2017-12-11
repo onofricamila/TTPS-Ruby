@@ -1,48 +1,49 @@
 require 'test_helper'
 
-class ExamsControllerTest < ActionDispatch::IntegrationTest
+class ExamsControllerTest < ActionController::TestCase
   setup do
+    @course = courses(:one)
     @exam = exams(:one)
   end
 
   test "should get index" do
-    get exams_url
+    get :index, params: { course_id: @course }
     assert_response :success
   end
 
   test "should get new" do
-    get new_exam_url
+    get :new, params: { course_id: @course }
     assert_response :success
   end
 
   test "should create exam" do
     assert_difference('Exam.count') do
-      post exams_url, params: { exam: { course_id: @exam.course_id, date: @exam.date, passing_score: @exam.passing_score, title: @exam.title } }
+      post :create, params: { course_id: @course, exam: @exam.attributes }
     end
 
-    assert_redirected_to exam_url(Exam.last)
+    assert_redirected_to course_exam_path(@course, Exam.last)
   end
 
   test "should show exam" do
-    get exam_url(@exam)
+    get :show, params: { course_id: @course, id: @exam }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_exam_url(@exam)
+    get :edit, params: { course_id: @course, id: @exam }
     assert_response :success
   end
 
   test "should update exam" do
-    patch exam_url(@exam), params: { exam: { course_id: @exam.course_id, date: @exam.date, passing_score: @exam.passing_score, title: @exam.title } }
-    assert_redirected_to exam_url(@exam)
+    put :update, params: { course_id: @course, id: @exam, exam: @exam.attributes }
+    assert_redirected_to course_exam_path(@course, Exam.last)
   end
 
   test "should destroy exam" do
     assert_difference('Exam.count', -1) do
-      delete exam_url(@exam)
+      delete :destroy, params: { course_id: @course, id: @exam }
     end
 
-    assert_redirected_to exams_url
+    assert_redirected_to course_exams_path(@course)
   end
 end

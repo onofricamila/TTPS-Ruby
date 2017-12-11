@@ -11,3 +11,5 @@
     4. You can copy Devise views (for customization) to your app by running:
 
        rails g devise:views
+
+* Para generar scaffolds anidados !!! `rails generate nested_scaffold PARENT_NAME/NAME [field:type field:type] ` (notar no se pone lo de references porque lo hace sola la gem)

@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class ExamsTest < ApplicationSystemTestCase
+class Course::ExamsTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit exams_url
+  #   visit course_exams_url
   #
-  #   assert_selector "h1", text: "Exam"
+  #   assert_selector "h1", text: "Course::Exam"
   # end
 end

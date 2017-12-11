@@ -1,6 +1,6 @@
-<h1>Editing Exam</h1>
+<h1>Editing exam</h1>
 
-<%= render 'form', exam: @exam %>
+<%= render 'form' %>
 
-<%= link_to 'Show', @exam %> |
-<%= link_to 'Back', exams_path %>
+<%= link_to 'Show', [@exam.course, @exam] %> |
+<%= link_to 'Back', course_exams_path(@exam.course) %>

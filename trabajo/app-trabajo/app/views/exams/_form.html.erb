@@ -1,37 +1,29 @@
-<%= form_with(model: exam, local: true) do |form| %>
-  <% if exam.errors.any? %>
+<%= form_for([@exam.course, @exam]) do |f| %>
+  <% if @exam.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+      <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
 
       <ul>
-      <% exam.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @exam.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :exam_title %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
-
   <div class="field">
-    <%= form.label :passing_score %>
-    <%= form.number_field :passing_score, id: :exam_passing_score %>
+    <%= f.label :passing_score %><br />
+    <%= f.number_field :passing_score %>
   </div>
-
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :exam_date %>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
   </div>
-
-  <div class="field">
-    <%= form.label :course_id %>
-    <%= form.text_field :course_id, id: :exam_course_id %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
