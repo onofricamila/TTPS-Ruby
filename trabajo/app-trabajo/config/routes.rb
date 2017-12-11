@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :cursadas
+
   get 'home/index'
 
   devise_for :users
