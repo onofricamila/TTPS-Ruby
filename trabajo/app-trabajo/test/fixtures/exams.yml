@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  passing_score: 1
+  date: 2017-12-11
+  course: one
+
+two:
+  title: MyString
+  passing_score: 1
+  date: 2017-12-11
+  course: two

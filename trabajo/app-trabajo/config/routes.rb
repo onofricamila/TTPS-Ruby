@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
 
   resources :courses do
-    end
+    resources :exams
+  end
   
   get 'home/index'
 
