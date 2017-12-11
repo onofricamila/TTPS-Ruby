@@ -1,0 +1,2 @@
+module CursadasHelper
+end

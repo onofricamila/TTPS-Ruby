@@ -1,0 +1,2 @@
+class Cursada < ApplicationRecord
+end
