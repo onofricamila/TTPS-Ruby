@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="container col-md-6 col-md-offset-3 ">
+  <h1>Courses</h1>
 
-<h1>Courses</h1>
-
-<table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Year</th>
-      <th>Options</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @courses.each do |course| %>
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
       <tr>
-        <td><%= course.year %></td>
-        <td>
-            <%= link_to 'Show', course , class: 'btn btn-outline-primary'%>
-            <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-outline-success' %>
-            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
-        </td>
+        <th>Year</th>
+        <th>Options</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.year %></td>
+          <td>
+              <%= link_to 'Show', course , class: 'btn btn-outline-primary'%>
+              <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-outline-success' %>
+              <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Course', new_course_path, class: 'btn btn-outline-warning' %>
+  <%= link_to 'New Course', new_course_path, class: 'btn btn-outline-warning' %>
+</div>

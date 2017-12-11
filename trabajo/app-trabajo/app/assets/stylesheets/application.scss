@@ -18,6 +18,12 @@
 /* for getting icons */
 @import "font-awesome";
 
+/* for scrolling */
+body{
+overflow-y: scroll;
+overflow-x: hidden;
+}
+
 /* Sticky footer styles ------------------------------------------------- */
 html {
   position: relative;
@@ -43,7 +49,7 @@ a{
 
 /* for all main containers */
 .beyond-navbar{
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 /* ruby icon */
