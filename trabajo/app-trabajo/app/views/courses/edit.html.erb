@@ -1,6 +1,11 @@
-<h1>Editing Course</h1>
 
-<%= render 'form', course: @course %>
+<div class="card" style="width:400px">
+<%=image_tag("course4.png", alt: "Card image, ruby development image", class: "card-img-top")%>
+<div class="card-body">
+  <h4 class="card-title">Editing Course</h4>
+  <p class="card-text">
+    <%= render 'form', course: @course %>
+  </p>
+</div>
+</div>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>

@@ -12,11 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :year %>
+    <%= form.label :year %><br>
     <%= form.number_field :year, id: :course_year %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-outline-warning'%>
+    <%= link_to 'Back', courses_path, class: 'btn btn-outline-dark' %>
   </div>
+  
 <% end %>

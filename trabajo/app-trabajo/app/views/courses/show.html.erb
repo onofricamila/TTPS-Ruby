@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @course.year %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<div class="card" style="width:400px">
+  <%=image_tag("course1.jpeg", alt: "Card image, ruby development image", class: "card-img-top")%>
+  <div class="card-body">
+    <h4 class="card-title">Course</h4>
+    <p class="card-text">
+      <strong>Year:</strong>
+      <%= @course.year %>
+    </p>
+    <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-outline-success' %> 
+    <%= link_to 'Back', courses_path, class: 'btn btn-outline-dark' %>
+  </div>
+</div>
