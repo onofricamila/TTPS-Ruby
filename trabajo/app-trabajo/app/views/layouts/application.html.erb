@@ -72,9 +72,6 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-
-    <!-- Para que la ubicacion de los mensajes de error sea pegada a la navbar -->
-    <%= devise_error_messages! %>
     
     <div class="container beyond-navbar">
       <%= yield %>
