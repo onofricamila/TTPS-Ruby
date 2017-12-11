@@ -69,3 +69,5 @@ gem 'jquery-rails'
 
 # icons
 gem "font-awesome-rails"
+
+# int
