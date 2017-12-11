@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @exam.title %>
+</p>
+
+<p>
+  <strong>Passing score:</strong>
+  <%= @exam.passing_score %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @exam.date %>
+</p>
+
+<%= link_to 'Edit', edit_exam_path(@exam) %> |
+<%= link_to 'Back', exams_path %>

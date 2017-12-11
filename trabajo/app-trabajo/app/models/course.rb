@@ -1,5 +1,7 @@
 class Course < ApplicationRecord
-    validates :year, 
+  has_many :exams, dependent: :destroy
+  
+  validates :year, 
     presence: true,
     uniqueness: true,
     inclusion: { in: 1990..Date.today.year ,message: "should be a year from 1990 to current"},
