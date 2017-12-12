@@ -1,6 +1,5 @@
 class Exam < ApplicationRecord
-  has_many :notes
-  belongs_to :course
+ApplicationRecord  belongs_to :course
 
   validates_presence_of :title, :date, :passing_score
 

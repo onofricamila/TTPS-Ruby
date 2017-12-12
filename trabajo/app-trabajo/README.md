@@ -29,3 +29,9 @@
     :time
     :timestamp
 
+* form select -->
+
+<div class="field">
+    <%= f.label :student %><br />
+    <%= f.collection_select :student_id, @note.exam.course.students, :id, :name, {:prompt => "Select a Student"}, {:class=>""} %>
+  </div>  
