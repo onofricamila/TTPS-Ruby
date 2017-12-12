@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
 
+  resources :exams do
+    resources :notes
+  end
+
   resources :courses do
     resources :students
   end
+  
   resources :courses do
     resources :exams
   end
