@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
   belongs_to :course
-  has_many :notes
+  has_many :results
   
   validates_presence_of :surname, :name, :dni, :number, :email
   validates_format_of :email, :with =>/\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

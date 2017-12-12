@@ -2,12 +2,15 @@ Rails.application.routes.draw do
 
 
 
+  resources :exams do
+    resources :results
+  end
   resources :courses do
     resources :students
   end
   
   resources :courses do
-    resources :exams
+    resources :exams 
   end
   
   get 'home/index'

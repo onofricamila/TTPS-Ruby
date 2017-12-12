@@ -1,0 +1,25 @@
+<h1>Listing results</h1>
+
+<table>
+  <tr>
+    <th>Score</th>
+    <th>Student</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @results.each do |result| %>
+  <tr>
+    <td><%= result.score %></td>
+    <td><%= result.student %></td>
+    <td><%= link_to 'Show', [result.exam, result] %></td>
+    <td><%= link_to 'Edit', edit_exam_result_path(result.exam, result) %></td>
+    <td><%= link_to 'Destroy', [result.exam, result], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Result', new_exam_result_path(params[:exam_id]) %>

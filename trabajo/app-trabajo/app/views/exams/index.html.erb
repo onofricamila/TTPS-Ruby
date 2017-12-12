@@ -22,8 +22,8 @@
           <%= link_to 'Show', [exam.course, exam], class: 'btn btn-outline-primary' %>
           <%= link_to 'Edit', edit_course_exam_path(exam.course, exam), class: 'btn btn-outline-success' %>
           <%= link_to 'Destroy', [exam.course, exam],  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-outline-danger' %>
-          <a class="btn btn-outline-secondary" href="<%= exam_notes_url(exam) %>">
-              Notes
+          <a class="btn btn-outline-secondary" href="<%= exam_results_url(exam) %>">
+              Results
           </a>
         </td>
         </tr>

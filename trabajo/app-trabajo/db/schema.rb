@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212165838) do
+ActiveRecord::Schema.define(version: 20171212192654) do
 
   create_table "courses", force: :cascade do |t|
     t.integer "year"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20171212165838) do
     t.datetime "updated_at", null: false
     t.index ["exam_id"], name: "index_notes_on_exam_id"
     t.index ["student_id"], name: "index_notes_on_student_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "exam_id"
+    t.integer "score"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exam_id"], name: "index_results_on_exam_id"
+    t.index ["student_id"], name: "index_results_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

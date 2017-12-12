@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Score:</b>
+  <%= @result.score %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @result.student %>
+</p>
+
+
+<%= link_to 'Edit', edit_exam_result_path(@result.exam, @result) %> |
+<%= link_to 'Back', exam_results_path(@result.exam) %>
