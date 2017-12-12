@@ -13,3 +13,19 @@
        rails g devise:views
 
 * Para generar scaffolds anidados !!! `rails generate nested_scaffold PARENT_NAME/NAME [field:type field:type] ` (notar no se pone lo de references porque lo hace sola la gem)
+
+* AR supported types
+
+    :binary
+    :boolean
+    :date
+    :datetime
+    :decimal
+    :float
+    :integer
+    :primary_key
+    :string
+    :text
+    :time
+    :timestamp
+
