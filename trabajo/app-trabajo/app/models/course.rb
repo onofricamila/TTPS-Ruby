@@ -1,6 +1,5 @@
 class Course < ApplicationRecord
-  has_many :students
-  has_many :exams, dependent: :destroy
+has_many :exams, dependent: :destroy
   
   validates :year, 
     presence: true,
