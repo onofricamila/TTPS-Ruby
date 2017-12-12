@@ -1,7 +1,7 @@
-<%= form_for([@result.exam, @result]) do |f| %>
+<%= form_for([@result.exam.course, @result.exam, @result]) do |f| %>
   <% if @result.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@result.errors.count, "error") %> prohibited this result from being saved:</h2>
+      <h6>Oops! <%= pluralize(@result.errors.count, "error") %> prohibited this result from being saved:</h6>
 
       <ul>
       <% @result.errors.full_messages.each do |msg| %>
@@ -13,15 +13,16 @@
 
   <div class="field">
     <%= f.label :score %><br />
-    <%= f.number_field :score %>
+    <%= f.number_field :score, class: 'form-control', style: 'width: 109px;'%>
   </div>
   
   <div class="field">
     <%= f.label :student %><br />
-    <%= f.collection_select :student_id, @result.exam.course.students, :id, :name, {:prompt => "Select a Student"}, {:class=>""} %>
+    <%= f.collection_select :student_id, @result.exam.course.students, :id, :surname, {:prompt => "Select ..."}, {:class=>""} %>
   </div>  
   <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-outline-warning' %>
+    <%= link_to 'Back', course_exam_results_path(@result.exam.course, @result.exam) , class: 'btn btn-outline-dark'%>
   </div>
 <% end %>

@@ -25,7 +25,7 @@ class ResultsController < ApplicationController
     @result = @exam.results.build(result_params)
 
     if @result.save
-      redirect_to([@result.exam, @result], notice: 'Result was successfully created.')
+      redirect_to([@result.exam.course, @result.exam, @result], notice: 'Result was successfully created.')
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class ResultsController < ApplicationController
   # PUT exams/1/results/1
   def update
     if @result.update_attributes(result_params)
-      redirect_to([@result.exam, @result], notice: 'Result was successfully updated.')
+      redirect_to([@result.exam.course, @result.exam, @result], notice: 'Result was successfully updated.')
     else
       render action: 'edit'
     end
@@ -44,7 +44,7 @@ class ResultsController < ApplicationController
   def destroy
     @result.destroy
 
-    redirect_to exam_results_url(@exam)
+    redirect_to course_exam_results_url(@result.exam.course, @exam)
   end
 
   private
