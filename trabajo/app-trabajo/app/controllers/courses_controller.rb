@@ -1,6 +1,12 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
+  # added by me so as to render the summary asked
+  # GET /courses/:id/summary --> courses#summary
+  def summary
+    
+  end
+
   # GET /courses
   # GET /courses.json
   def index

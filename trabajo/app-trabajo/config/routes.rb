@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-
-
   resources :courses do
+    member do
+      get :summary
+    end
+
     resources :exams do
       resources :results
     end
@@ -10,13 +12,10 @@ Rails.application.routes.draw do
     resources :students
   end
 
-  
-  
   get 'home/index'
 
   devise_for :users
   
   root to: "home#index"
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
