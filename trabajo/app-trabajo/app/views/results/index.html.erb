@@ -28,4 +28,6 @@
   <br>
 
   <%= link_to 'New Result', new_course_exam_result_path(params[:exam_id]), class: 'btn btn-outline-warning' %>
+  <%= link_to 'Back to Exams', course_exams_path(@results.first.exam.course) , class: 'btn btn-outline-dark'%>
+
 </div>
