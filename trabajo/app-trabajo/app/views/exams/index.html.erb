@@ -1,27 +1,35 @@
-<h1>Listing exams</h1>
+<p id="notice"><%= notice %></p>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Passing score</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="container col-md-8 col-md-offset-2 ">
+  <h1>Listing exams</h1>
 
-<% @exams.each do |exam| %>
-  <tr>
-    <td><%= exam.title %></td>
-    <td><%= exam.passing_score %></td>
-    <td><%= exam.date %></td>
-    <td><%= link_to 'Show', [exam.course, exam] %></td>
-    <td><%= link_to 'Edit', edit_course_exam_path(exam.course, exam) %></td>
-    <td><%= link_to 'Destroy', [exam.course, exam], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <table class="table text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Passing score</th>
+        <th>Date</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @exams.each do |exam| %>
+        <tr>
+        <td><%= exam.title %></td>
+        <td><%= exam.passing_score %></td>
+        <td><%= exam.date %></td>
+        <td>
+          <%= link_to 'Show', [exam.course, exam], class: 'btn btn-outline-primary' %>
+          <%= link_to 'Edit', edit_course_exam_path(exam.course, exam), class: 'btn btn-outline-success' %>
+          <%= link_to 'Destroy', [exam.course, exam],  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-outline-danger' %>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br />
+  <br>
 
-<%= link_to 'New Exam', new_course_exam_path(params[:course_id]) %>
+  <%= link_to 'New Exam', new_course_exam_path(params[:course_id]), class: 'btn btn-outline-warning' %>
+  
+</div>

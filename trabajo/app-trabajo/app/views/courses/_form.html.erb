@@ -1,7 +1,7 @@
 <%= form_with(model: course, local: true) do |form| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
-      <h6> Oops! <%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h6>
+      <h6>Oops! <%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h6>
 
       <ul>
       <% course.errors.full_messages.each do |message| %>
@@ -13,9 +13,9 @@
 
   <div class="field">
     <%= form.label :year %><br>
-    <%= form.number_field :year, id: :course_year %>
+    <%= form.number_field :year, id: :course_year, class:"form-control" %>
   </div>
-
+  <br>
   <div class="actions">
     <%= form.submit class: 'btn btn-outline-warning'%>
     <%= link_to 'Back', courses_path, class: 'btn btn-outline-dark' %>

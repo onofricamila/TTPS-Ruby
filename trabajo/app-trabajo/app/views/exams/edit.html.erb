@@ -1,6 +1,18 @@
-<h1>Editing exam</h1>
 
-<%= render 'form' %>
+<div class="container col-md-4 col-md-offset-4" style="width:400px">
 
-<%= link_to 'Show', [@exam.course, @exam] %> |
-<%= link_to 'Back', course_exams_path(@exam.course) %>
+  <div class="card" style="width:400px">
+    <%=image_tag("course4.png", alt: "Card image, exam", class: "card-img-top")%>
+    <div class="card-body">
+      <h4 class="card-title">Editing Exam</h4>
+      <p class="card-text">
+        <%= render 'form' %>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+

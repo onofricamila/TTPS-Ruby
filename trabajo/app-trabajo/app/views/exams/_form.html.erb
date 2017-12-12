@@ -1,7 +1,7 @@
 <%= form_for([@exam.course, @exam]) do |f| %>
   <% if @exam.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+      <h6>Oops! <%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h6>
 
       <ul>
       <% @exam.errors.full_messages.each do |msg| %>
@@ -13,17 +13,19 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title ,class:"form-control"%>
   </div>
   <div class="field">
     <%= f.label :passing_score %><br />
-    <%= f.number_field :passing_score %>
+    <%= f.number_field :passing_score, class:"form-control" %>
   </div>
   <div class="field">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-outline-warning'%>
+    <%= link_to 'Back',  course_exams_path(@exam.course), class: 'btn btn-outline-dark' %>
   </div>
 <% end %>
