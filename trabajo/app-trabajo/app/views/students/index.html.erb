@@ -1,0 +1,40 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="container col-md-10 col-md-offset-1 ">
+  <h1>Listing Students</h1>
+
+  <table class="table text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Surname</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Dni</th>
+        <th>Email</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.surname %></td>
+          <td><%= student.name %></td>
+          <td><%= student.number %></td>
+          <td><%= student.dni %></td>
+          <td><%= student.email %></td>
+          <td>
+            <%= link_to 'Show', [student.course, student], class: 'btn btn-outline-primary'  %>
+            <%= link_to 'Edit', edit_course_student_path(student.course, student), class: 'btn btn-outline-success'  %>
+            <%= link_to 'Destroy', [student.course, student],  data: { confirm: 'Are you sure?' }, :method => :delete , class: 'btn btn-outline-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Student', new_course_student_path(params[:course_id]), class: 'btn btn-outline-warning' %>
+  
+</div>

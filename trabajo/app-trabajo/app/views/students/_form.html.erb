@@ -1,0 +1,39 @@
+<%= form_for([@student.course, @student]) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h6>Oops!<%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h6>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :surname %><br />
+    <%= f.text_field :surname,class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.number_field :number,class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :dni %><br />
+    <%= f.number_field :dni,class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email,class:"form-control" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-outline-warning'%>
+    <%= link_to 'Back',  course_students_path(@student.course), class: 'btn btn-outline-dark' %>   
+  </div>
+<% end %>

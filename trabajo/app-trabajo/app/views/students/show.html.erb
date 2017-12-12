@@ -1,0 +1,39 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="container col-md-4 col-md-offset-4" style="width:400px">
+  <div class="card" style="width:400px">
+    <%=image_tag("course1.jpeg", alt: "Card image, ruby development image", class: "card-img-top")%>
+    <div class="card-body">
+      <h4 class="card-title">Exam</h4>
+      <p class="card-text">
+        <p>
+          <b>Surname:</b>
+          <%= @student.surname %>
+        </p>
+        
+        <p>
+          <b>Name:</b>
+          <%= @student.name %>
+        </p>
+        
+        <p>
+          <b>Number:</b>
+          <%= @student.number %>
+        </p>
+        
+        <p>
+          <b>Dni:</b>
+          <%= @student.dni %>
+        </p>
+        
+        <p>
+          <b>Email:</b>
+          <%= @student.email %>
+        </p>
+      </p>
+      <%= link_to 'Edit', edit_course_student_path(@student.course, @student), class: 'btn btn-outline-success' %> 
+      <%= link_to 'Back', course_students_path(@student.course), class: 'btn btn-outline-dark' %>
+    </div>
+  </div>
+</div>
