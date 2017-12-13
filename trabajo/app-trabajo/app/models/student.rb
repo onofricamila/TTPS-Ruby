@@ -9,4 +9,12 @@ class Student < ApplicationRecord
   validates :dni, :uniqueness => {:scope => [:course_id]}
   validates :surname, :uniqueness => {:scope => [:course_id, :name]}
   validates :number, :uniqueness => {:scope => [:course_id]}
+
+  def attended_to? exam
+    !(Result.find_by_assoc(self, exam).empty?)
+  end
+
+  def score_for exam
+    Result.where("student_id = ? AND exam_id = ?", self.id, exam.id)
+  end
 end

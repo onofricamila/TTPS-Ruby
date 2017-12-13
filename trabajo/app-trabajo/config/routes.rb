@@ -12,10 +12,8 @@ Rails.application.routes.draw do
     resources :students
   end
 
-  get 'home/index'
-
   devise_for :users
   
-  root to: "home#index"
+  root :to => "courses#index"
   
 end

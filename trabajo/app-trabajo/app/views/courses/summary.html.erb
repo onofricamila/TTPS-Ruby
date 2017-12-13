@@ -1,9 +1,34 @@
-summary
 
-<%= @course.inspect %>
-<br><br>
+<div class="container col-md-8 col-md-offset-2 ">
+  <h1>Summary</h1>
 
-<%= @course.exams.inspect %>
-<br><br>
+  <table class="table text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Students</th>
+        <% @course.exams.each do |exam| %>
+             <th><%= exam.title %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @course.students.each do |student| %>
+        <tr>
+          <td><%= student.surname %> <%= student.name %></td>
+          <% @course.exams.each do |exam| %>
+            <td>
+                <% if student.attended_to? exam  %>
+                    <% student.score_for exam %>
+                <% else %>
+                    Ausente
+                <% end %>
+            </td>
+          <% end %>  
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= @course.students.inspect %>
+  <br>
+
+</div>

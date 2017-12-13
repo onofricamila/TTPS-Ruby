@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-<div class="container col-md-8 col-md-offset-2 ">
+<div class="container col-md-6 col-md-offset-3 ">
   <h1>Courses</h1>
 
   <table class="table text-center">
@@ -15,8 +14,6 @@
           <td><%= course.year %></td>
           <td>
               <%= link_to 'Show', course , class: 'btn btn-outline-primary'%>
-              <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-outline-success' %>
-              <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
               
               <a class="btn btn-outline-info" href="<%= course_exams_url(course) %>">
                  Exams

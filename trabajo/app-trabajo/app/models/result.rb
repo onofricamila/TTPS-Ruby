@@ -10,4 +10,10 @@ class Result < ApplicationRecord
     :message => "can only be whole number between 1 and 100 standing for a proportion over 100."
 
   validates :student_id, :uniqueness => {:scope => :exam_id}
+
+  scope :find_by_assoc, -> (student, exam) { where( :student => student, :exam => exam ) }
+  
+  def passed?
+    self.score >= self.exam.passing_score
+  end 
 end

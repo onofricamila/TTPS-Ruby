@@ -9,6 +9,7 @@
         <%= @course.year %>
       </p>
       <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-outline-success' %> 
+      <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
       <%= link_to 'Back', courses_path, class: 'btn btn-outline-dark' %>
     </div>
   </div>
