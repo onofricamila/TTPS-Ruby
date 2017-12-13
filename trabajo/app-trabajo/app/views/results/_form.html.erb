@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :score %> (proportion over 100)<br />
-    <%= f.number_field :score, class: 'form-control', style: 'width: 109px;'%>
+    <%= f.number_field :score, class: 'form-control', style: 'width: 186px;'%>
   </div>
   
   <div class="field">
     <%= f.label :student %><br />
-    <%= f.collection_select :student_id, @result.exam.course.students, :id, :surname, {:prompt => "Select ..."}, {:class=>""} %>
+    <%= f.collection_select :student_id, @result.exam.course.students.order('surname ASC'), :id, :surname_with_name, {:prompt => "Select a student"}, {:class=>""} %>
   </div>  
   <br>
   <div class="actions">

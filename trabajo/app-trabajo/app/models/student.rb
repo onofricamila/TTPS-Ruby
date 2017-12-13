@@ -17,4 +17,8 @@ class Student < ApplicationRecord
   def score_for exam
    (Result.find_by_assoc self, exam).first
   end
+
+  def surname_with_name
+    "#{surname}, #{name}"
+  end
 end

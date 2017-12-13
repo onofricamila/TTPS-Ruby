@@ -1,6 +1,6 @@
 
 <div class="container col-md-8 col-md-offset-2 ">
-  <h1>Summary</h1>
+  <h1> <%= @course.year %> Course Summary</h1>
 
   <table class="table">
     <thead class="thead-dark">
@@ -46,7 +46,7 @@
         <% end %>
       </tr>
       <tr>
-        <td>Failed students</td>
+        <td>Students who failed</td>
         <% @course.exams.each do |exam| %>
             <td><%= exam.find_total_attended - exam.find_passing %></td>
         <% end %>
@@ -73,6 +73,6 @@
   </table>
 
   <br>      
-  <%= link_to 'Back', courses_path, class: 'btn btn-outline-dark' %>
+  <%= link_to 'Back to Courses', courses_path, class: 'btn btn-outline-dark' %>
 
 </div>
