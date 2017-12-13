@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :summary]
 
   # added by me so as to render the summary asked
   # GET /courses/:id/summary --> courses#summary
@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.order(year: :desc)
   end
 
   # GET /courses/1

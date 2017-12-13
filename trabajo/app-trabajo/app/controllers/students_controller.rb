@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
 
   # GET courses/1/students
   def index
-    @students = @course.students
+    @students = @course.students.order(:surname, :name)
   end
 
   # GET courses/1/students/1

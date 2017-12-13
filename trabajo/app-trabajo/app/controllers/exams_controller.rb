@@ -4,7 +4,7 @@ class ExamsController < ApplicationController
 
   # GET courses/1/exams
   def index
-    @exams = @course.exams
+    @exams = @course.exams.order(:date)
   end
 
   # GET courses/1/exams/1
