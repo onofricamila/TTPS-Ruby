@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @course.students.each do |student| %>
+      <% @course.students.order('surname, name').each do |student| %>
         <tr>
           <td><%= student.surname %> <%= student.name %></td>
           <% @exams.each do |exam| %>
