@@ -4,7 +4,7 @@ class ResultsController < ApplicationController
 
   # GET exams/1/results
   def index
-    @results = @exam.results
+    @results = @exam.results.order('score DESC')
   end
 
   # GET exams/1/results/1

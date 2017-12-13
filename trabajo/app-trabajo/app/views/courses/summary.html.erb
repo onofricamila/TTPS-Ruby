@@ -6,7 +6,8 @@
     <thead class="thead-dark">
       <tr>
         <th>Students</th>
-        <% @course.exams.each do |exam| %>
+        <% @exams = @course.exams.order('date') %>
+        <% @exams.each do |exam| %>
              <th><%= exam.title %></th>
         <% end %>
       </tr>
@@ -15,7 +16,7 @@
       <% @course.students.each do |student| %>
         <tr>
           <td><%= student.surname %> <%= student.name %></td>
-          <% @course.exams.each do |exam| %>
+          <% @exams.each do |exam| %>
             <td>
                 <% if student.attended_to? exam  %>
                     <% result = student.score_for exam %>
@@ -41,30 +42,30 @@
     <tfoot class="tfoot-dark">
       <tr class="bordered">
         <td>Passing students</td>
-        <% @course.exams.each do |exam| %>
+        <% @exams.each do |exam| %>
               <td><%= exam.find_passing %></td>
         <% end %>
       </tr>
       <tr>
         <td>Students who failed</td>
-        <% @course.exams.each do |exam| %>
+        <% @exams.each do |exam| %>
             <td><%= exam.find_total_attended - exam.find_passing %></td>
         <% end %>
       </tr>
       <tr>
         <td>Absent students</td>
-        <% @course.exams.each do |exam| %>
+        <% @exams.each do |exam| %>
               <td><%= @course.students.size - exam.find_total_attended %></td>
         <% end %>
       </tr>
       <tr class="bordered">
       <td>Aproval percentage</td>
-      <% @course.exams.each do |exam| %>
+      <% @exams.each do |exam| %>
             <td>
               <% if  exam.find_total_attended == 0 %>
-                0
+                 0
               <% else %>
-              <%=  (exam.find_passing.to_f / exam.find_total_attended) * 100 %> 
+                <%=  (exam.find_passing.to_f / exam.find_total_attended).round(2) * 100 %> 
               <% end %> %
             </td>
       <% end %>
