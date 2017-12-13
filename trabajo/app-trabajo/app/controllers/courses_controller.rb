@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   # added by me so as to render the summary asked
   # GET /courses/:id/summary --> courses#summary
   def summary
+    
   end
 
   # GET /courses

@@ -59,5 +59,27 @@ a{
 }
   
 /* cards */
-.card{
+.table{
+  text-align: left;
+}
+
+/* summary icons */
+#passed{
+  color: green;
+}
+#fail{
+  color: orangered;
+}
+#absent{
+  color: gray;
+}
+#fail, #passed{
+  font-weight: bolder;
+}
+
+/* tfoot */
+.tfoot-dark{
+  color: #000;
+  background-color: #eee;
+  border-color: #32383e;
 }

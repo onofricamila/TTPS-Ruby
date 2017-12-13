@@ -16,4 +16,5 @@ class Result < ApplicationRecord
   def passed?
     self.score >= self.exam.passing_score
   end 
+
 end

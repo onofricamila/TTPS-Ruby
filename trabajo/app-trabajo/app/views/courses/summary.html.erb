@@ -2,7 +2,7 @@
 <div class="container col-md-8 col-md-offset-2 ">
   <h1>Summary</h1>
 
-  <table class="table text-center">
+  <table class="table">
     <thead class="thead-dark">
       <tr>
         <th>Students</th>
@@ -18,15 +18,52 @@
           <% @course.exams.each do |exam| %>
             <td>
                 <% if student.attended_to? exam  %>
-                    <% student.score_for exam %>
+                    <% result = student.score_for exam %>
+                    <% if result.passed?  %>
+                      <span id="passed">
+                        <%= result.score %> %
+                        <i class="fa fa-check-circle-o"></i> 
+                      <span>
+                    <% else %>
+                      <span id="fail"> 
+                        <%= result.score %> %
+                        <i class="fa fa-times-circle-o"></i> 
+                      <span>
+                    <% end %>
                 <% else %>
-                    Ausente
+                   <span id="absent"> Absent <i class="fa fa-exclamation-circle"></i><span>
                 <% end %>
             </td>
           <% end %>  
         </tr>
       <% end %>
     </tbody>
+    <tfoot class="tfoot-dark">
+      <tr>
+        <td>Passing</td>
+        <% @course.exams.each do |exam| %>
+              <td><%= exam.title %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td>Failed</td>
+        <% @course.exams.each do |exam| %>
+              <td><%= exam.title %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td>Absent</td>
+        <% @course.exams.each do |exam| %>
+              <td><%= exam.title %></td>
+        <% end %>
+      </tr>
+      <tr>
+      <td>Aproval percentage</td>
+      <% @course.exams.each do |exam| %>
+            <td><%= exam.title %></td>
+      <% end %>
+    </tr>
+    </tfoot>
   </table>
 
   <br>      

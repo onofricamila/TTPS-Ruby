@@ -15,6 +15,6 @@ class Student < ApplicationRecord
   end
 
   def score_for exam
-    Result.where("student_id = ? AND exam_id = ?", self.id, exam.id)
+   (Result.find_by_assoc self, exam).first
   end
 end
