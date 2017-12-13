@@ -13,7 +13,7 @@
     <tbody>
       <% @results.each do |result| %>
         <tr>
-          <td><%= result.score %></td>
+          <td><%= result.score %> %</td>
           <td><%= result.student.surname %> <%= result.student.name %></td>
           <td>
             <%= link_to 'Show', [result.exam.course, result.exam, result], class: 'btn btn-outline-primary'  %>

@@ -31,7 +31,7 @@
                       <span>
                     <% end %>
                 <% else %>
-                   <span id="absent"> Absent <i class="fa fa-exclamation-circle"></i><span>
+                   <span id="absent"> Absent <span>
                 <% end %>
             </td>
           <% end %>  
@@ -39,28 +39,34 @@
       <% end %>
     </tbody>
     <tfoot class="tfoot-dark">
-      <tr>
-        <td>Passing</td>
+      <tr class="bordered">
+        <td>Passing students</td>
         <% @course.exams.each do |exam| %>
-              <td><%= exam.title %></td>
+              <td><%= exam.find_passing %></td>
         <% end %>
       </tr>
       <tr>
-        <td>Failed</td>
+        <td>Failed students</td>
         <% @course.exams.each do |exam| %>
-              <td><%= exam.title %></td>
+            <td><%= exam.find_total_attended - exam.find_passing %></td>
         <% end %>
       </tr>
       <tr>
-        <td>Absent</td>
+        <td>Absent students</td>
         <% @course.exams.each do |exam| %>
-              <td><%= exam.title %></td>
+              <td><%= @course.students.size - exam.find_total_attended %></td>
         <% end %>
       </tr>
-      <tr>
+      <tr class="bordered">
       <td>Aproval percentage</td>
       <% @course.exams.each do |exam| %>
-            <td><%= exam.title %></td>
+            <td>
+              <% if  exam.find_total_attended == 0 %>
+                0
+              <% else %>
+              <%=  (exam.find_passing.to_f / exam.find_total_attended) * 100 %> 
+              <% end %> %
+            </td>
       <% end %>
     </tr>
     </tfoot>

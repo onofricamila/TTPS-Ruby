@@ -13,6 +13,10 @@ class Result < ApplicationRecord
 
   scope :find_by_assoc, -> (student, exam) { where( :student => student, :exam => exam ) }
   
+  scope :find_total_for, -> (exam) { where( :exam => exam ) }
+
+  scope :find_passing_for, -> (exam) { where( :exam => exam, score: exam.passing_score..100 ) }
+
   def passed?
     self.score >= self.exam.passing_score
   end 
