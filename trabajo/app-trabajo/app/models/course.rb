@@ -8,6 +8,6 @@ class Course < ApplicationRecord
     inclusion: { in: 1990..Date.today.year ,message: "should be a year from 1990 to current"},
     format: { 
       with: /(19|20)\d{2}/i, 
-      message: "should be a four-digit year"
+      message: "should be a four-digit year, starting with 19.. or 20.."
     }
 end

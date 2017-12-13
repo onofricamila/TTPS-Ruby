@@ -15,7 +15,7 @@ class Result < ApplicationRecord
   
   scope :find_total_for, -> (exam) { where( :exam => exam ) }
 
-  scope :find_passing_for, -> (exam) { where( :exam => exam, score: exam.passing_score..100 ) }
+  scope :find_passing_for, -> (exam) { find_total_for(exam).where( score: exam.passing_score..100 ) }
 
   def passed?
     self.score >= self.exam.passing_score
