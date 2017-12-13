@@ -24,45 +24,30 @@
     
       <!-- Navbar links -->
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <!-- Links -->
+     
+      <% if user_signed_in? %>
         <ul class="navbar-nav">
           
           <li class="nav-item">
           <!-- considerar clase para a solamente "btn btn-lg btn-social btn-github" -->
             <a class="nav-link" href="<%= courses_url %>">
-                <i class="fa fa-home"></i> Home
+                <i class="fa fa-list-alt"></i> Courses
             </a>
           </li>
         
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') %>        
-            </li>
-          <% else %>
-          <!--
-              <li class="nav-item">
-                <%= link_to('Login', new_user_session_path, class: 'nav-link')  %>  
-              </li>
-          -->
-          <% end %>
-
           <li class="nav-item">
-            <a class="nav-link" href="#">Static Link</a>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+              <span>
+                <i class="fa fa-external-link"></i>
+                Log out
+              </span>
+            <% end %>
           </li>
-      
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            <i class="fa fa-chevron-circle-down"></i> Actions
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="<%= courses_url %>">Courses</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-            </div>
-          </li>
+                
         </ul>
-      </div>
+    <% end %>
+    
+    </div>
     </nav> 
 
     <!-- Mensajes de error/notificacion desde devise -->    
