@@ -35,3 +35,35 @@
     <%= f.label :student %><br />
     <%= f.collection_select :student_id, @note.exam.course.students, :id, :name, {:prompt => "Select a Student"}, {:class=>""} %>
   </div>  
+
+* For associations to reference one another by name, you can use the fixture name instead of specifying the id: attribute on the associated fixtures. Rails will auto assign a primary key to be consistent between runs. 
+
+* ERB allows you to embed Ruby code within templates. The YAML fixture format is pre-processed with ERB when Rails loads fixtures. This allows you to use Ruby to help you generate some sample data. For example, the following code generates a thousand users:
+```ruby
+<% 1000.times do |n| %>
+user_<%= n %>:
+  username: <%= "user#{n}" %>
+  email: <%= "user#{n}@example.com" %>
+<% end %>
+```
+
+* Fixtures are instances of Active Record. As mentioned in point #3 above, you can access the object directly because it is automatically available as a method whose scope is local of the test case. For example:
+```ruby
+# this will return the User object for the fixture named david
+users(:david)
+ 
+# this will return the property for david called id
+users(:david).id
+ 
+# one can also access methods available on the User class
+david = users(:david)
+david.call(david.partner)
+```
+
+To get multiple fixtures at once, you can pass in a list of fixture names. For example:
+```ruby
+# this will return an array containing the fixtures david and steve
+users(:david, :steve)
+```
+
+* By default, running bin/rails test won't run your system tests. Make sure to run bin/rails test:system to actually run them.

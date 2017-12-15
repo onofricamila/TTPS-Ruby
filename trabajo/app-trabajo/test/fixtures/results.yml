@@ -2,10 +2,10 @@
 
 one:
   exam: one
-  score: 1
+  score: 70
   student: one
 
 two:
   exam: two
-  score: 1
+  score: 60
   student: two
