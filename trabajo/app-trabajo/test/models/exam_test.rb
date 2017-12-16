@@ -42,5 +42,30 @@ class ExamTest < ActiveSupport::TestCase
       @exam.save!
       assert_not duplicate_exam.valid?
     end
-  
+
+    test "should save exam with another exam's title in another course" do
+      exam = exams(:two)
+      exam.title = @exam.title
+      @exam.save!
+      assert exam.valid?
+    end
+
+    test "should recognize there is a student who attended to exam one" do
+      # fixtures fold has a result which belongs to student one and exam one, which
+      # captured in @exam
+      assert @exam.find_total_attended == 1
+    end
+
+    test "should recognize there is only one student who passed exam one" do
+      # fixtures fold has a result which belongs to student one and exam one
+      assert @exam.find_passing == 1
+    end
+
+    test "should recognize the student who attended to exam two failed" do
+      # fixtures fold has a result which belongs to student two and exam two
+      exam = exams(:two)
+      assert exam.find_total_attended == 1
+      assert exam.find_passing == 0
+    end
+
 end
