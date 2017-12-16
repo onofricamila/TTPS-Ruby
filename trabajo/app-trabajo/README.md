@@ -60,6 +60,15 @@ david = users(:david)
 david.call(david.partner)
 ```
 
+* seeds:
+```ruby
+Book.create(title: 'Julius Shulman: The Last Decade').authors.create([
+  {first_name: 'Thomas', last_name: 'Schirmbock'},
+  {first_name: 'Julius', last_name: 'Shulman'},
+  {first_name: 'Jürgen', last_name: 'Nogai'}
+  ])
+```
+
 To get multiple fixtures at once, you can pass in a list of fixture names. For example:
 ```ruby
 # this will return an array containing the fixtures david and steve
