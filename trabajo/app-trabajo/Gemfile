@@ -55,7 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # ---------------------------------------------------------------------------------------------------------------------------------
-# A partir de aca se incluyen las gemas elegidas por mi para realizar el trabajo.
+# Gems chosen by me are listed below.
 # ---------------------------------------------------------------------------------------------------------------------------------
 
 # for auth
