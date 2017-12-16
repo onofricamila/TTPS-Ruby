@@ -6,12 +6,6 @@ class CourseTest < ActiveSupport::TestCase
     @course = courses(:one)
   end
 
-  # called after every single test
-  teardown do
-    # when controller is using cache it may be a good idea to reset it afterwards
-    Rails.cache.clear
-  end
-
   test "should be valid" do
     assert @course.valid?
   end

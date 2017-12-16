@@ -8,12 +8,6 @@ class ExamTest < ActiveSupport::TestCase
       @exam = exams(:one)
     end
   
-    # called after every single test
-    teardown do
-      # when controller is using cache it may be a good idea to reset it afterwards
-      Rails.cache.clear
-    end
-  
     test "should be valid" do
       assert @exam.valid?
     end
@@ -32,7 +26,7 @@ class ExamTest < ActiveSupport::TestCase
       @exam.passing_score = nil
       assert_not @exam.save
     end
-  
+
     test "passing score should not be negative" do
       @exam.passing_score = -10
       assert_not @exam.valid?
