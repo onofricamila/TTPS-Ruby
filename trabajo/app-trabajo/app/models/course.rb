@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-  has_many :students
-  has_many :exams, dependent: :destroy
+  has_many :students, :dependent => :restrict_with_error
+  has_many :exams, :dependent => :restrict_with_error
   
   validates :year, 
     presence: true,
