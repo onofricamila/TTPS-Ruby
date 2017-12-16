@@ -5,3 +5,8 @@
 * seeds.rb ...
     * Write `User.create! :email => 'root@gmail.com', :password => 'topsecret',  password_confirmation => 'topsecret'` if you exported the current db info so as to have a root user.
     * Dates need to be in this sample format `'2017-12-25'`.
+
+
+# Remember
+
+- no se hace lo de alert/notice en students con results.... deje solo la restriccion

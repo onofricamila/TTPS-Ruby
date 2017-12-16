@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
+  has_many :results, :dependent => :restrict_with_error
   belongs_to :course
-  has_many :results
   
   validates_presence_of :surname, :name, :dni, :number, :email
   validates_format_of :email, :with =>/\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
