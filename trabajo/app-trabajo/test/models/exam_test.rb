@@ -50,6 +50,10 @@ class ExamTest < ActiveSupport::TestCase
       assert exam.valid?
     end
 
+    # ---------------------------------------------------------------------------------------------------------------------------------
+    # testing interactions with other models
+    # ---------------------------------------------------------------------------------------------------------------------------------
+
     test "should recognize there is a student who attended to exam one" do
       # fixtures fold has a result which belongs to student one and exam one, which
       # captured in @exam
