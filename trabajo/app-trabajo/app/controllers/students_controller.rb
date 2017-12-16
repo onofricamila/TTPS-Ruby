@@ -43,8 +43,17 @@ class StudentsController < ApplicationController
   # DELETE courses/1/students/1
   def destroy
     @student.destroy
-
-    redirect_to course_students_url(@course)
+    if (!@student.results.empty?)
+      respond_to do |format|
+        format.html { redirect_to course_students_url(@course), alert: 'Student was not destroyed due to the fact it has results related.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to course_students_url(@course), notice: 'Student was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
   end
 
   private

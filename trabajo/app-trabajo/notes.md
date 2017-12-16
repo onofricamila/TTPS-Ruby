@@ -7,6 +7,5 @@
     * Dates need to be in this sample format `'2017-12-25'`.
 
 
-# Remember
+# ASK
 
-- no se hace lo de alert/notice en students con results.... deje solo la restriccion

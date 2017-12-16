@@ -61,9 +61,9 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @course.destroy
-    if @course.errors
+    if (!@course.exams.empty? || !@course.students.empty?)
       respond_to do |format|
-        format.html { redirect_to courses_url, alert: 'Course was not destroyed due to the fact it has exams or students.' }
+        format.html { redirect_to courses_url, alert: 'Course was not destroyed due to the fact it has exams or students related.' }
         format.json { head :no_content }
       end
     else

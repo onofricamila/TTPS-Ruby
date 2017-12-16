@@ -43,9 +43,9 @@ class ExamsController < ApplicationController
   # DELETE courses/1/exams/1
   def destroy
     @exam.destroy
-    if @exam.errors
+    if (!@exam.results.empty?)
       respond_to do |format|
-        format.html { redirect_to  course_exams_url(@course), alert: 'Exam was not destroyed due to the fact it has results related.' }
+        format.html { redirect_to course_exams_url(@course), alert: 'Exam was not destroyed due to the fact it has results related.' }
         format.json { head :no_content }
       end
     else
