@@ -1,5 +1,5 @@
 class Exam < ApplicationRecord
-  has_many :results
+  has_many :results, :dependent => :restrict_with_error
   belongs_to :course
 
   validates_presence_of :title, :date, :passing_score
