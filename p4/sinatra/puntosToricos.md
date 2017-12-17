@@ -253,7 +253,8 @@ https://www.packtpub.com/books/content/quick-start-your-first-sinatra-applicatio
 
 ### 6. Middlewares para Sinatra
 
-Estan como en el medio de tu app en server y lo que se muestra. En este caso, modificaria tu respuesta
+Estan como en el medio de tu app en server y lo que se muestra. En este caso, modificaria tu respuesta.
+
 **NOTAS**
 1. Todo middleware debe estar representado por una clase (le dara el nombre al middleware)
 2. Esa clase debe tener un metodo initialize que recibe una app y se lo asigna a una var de instancia
@@ -293,13 +294,24 @@ end
 
 **NOTAS**
 1. redirect "" --> redirecciona al path dado. Ej: `"/partida/#{rand(list.size)}"`. Esta bueno para ponerlo en el index y tipo ante un get '/' do redirect 'blabla' end
-2. VER COMO SE TOMAN LOS DATOS PASADOS POR URL !!!! ENTRE EL DO Y END DEL METODO (POST GET ETC) PONER |var| QUE REPRESENTAN A LOS PARAMS. EJ:
+2. VER COMO SE TOMAN LOS DATOS PASADOS POR URL !!!! 
 
-```ruby
-get '/partida/:id' do |id|
+  * ENTRE EL DO Y END DEL METODO (POST GET ETC) PONER |var| QUE REPRESENTAN A LOS PARAMS. EJ:
+
+  ```ruby
+  get '/partida/:id' do |id|
   list[id.to_i].summary
-end
-```
+  end
+  ```
+
+  * USAR EL **HASH PARAMS** (MEJOR)
+
+  ```ruby
+  get '/partida/:id' do |id|
+  list[params["id"].to_i].summary
+  end
+  ```
+
 3. Uso de "#{}" para extrapolar codigo
 
 ---
