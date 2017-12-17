@@ -101,7 +101,7 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 **NOTA:** si queres `no ponerle el nombre config.ru al archivo de tu app`, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer `require 'rack'` y abajo `Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292)`. Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hay que hacer ruby app.rb o `rackup app.rb`
 
 
-###  :loudspeaker: OBJETOS QUE PODRIAN SER 'RACKABLES'
+###  :loudspeaker: Objetos que podrian ser 'RACKABLES'
 
 Aquel que posea un metodo call que recibe un hash de entorno y devuelve un array (respetando orden) con la siguiente info sobre la respuesta HTTP ...
   1. status code, hash de cabeceras http, y un objeto que implementa el mixin Enumerable (si algo implementa el mixin Enumerable sabes entiende el metodo each)
