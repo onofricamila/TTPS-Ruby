@@ -206,7 +206,7 @@ end
 count_invocations_of :hola, :chau
 end
 ```
-**Resumen**
+**Creando una gema**
 * Code for your package is placed within the lib directory. The convention is to have one Ruby file with the same name as your gem, since that gets loaded when require 'hola' is run. That one file is in charge of setting up your gem’s code and API.
 
 The code inside of lib/hola.rb is pretty bare bones. It just makes sure that you can see some output from the gem.
