@@ -10,6 +10,7 @@ Una gema es una librería Ruby. Se utilizan para compartir código entre desarro
 * Documentación
 * gemspec (Que especifica la información acerca de la gema, como su nombre, version, descripción, autor, **dependencias**, etc).
     *  Rubygem conventions dictate that you move the dependency declaration on these released gems form the Gemfile into your .gemspec file 
+    * Notice dependencies are also declarated in Gemfile and Gemfile.lock
 
 
 http://guides.rubygems.org/what-is-a-gem/
@@ -75,8 +76,7 @@ http://semver.org/
 
 * Instalamos bundle tipo global haciendo _gem install bundler_
 
-*  Inicializas un nuevo proyeto en ruby haciendo _bundle init_ en un dir vacio. Eso como que ya te crea
-ahi un Gemfile con lo basico.
+*  Inicializas un nuevo proyeto en ruby haciendo _bundle init_ en un dir vacio. Eso como que ya te crea ahi un Gemfile con lo basico.
 
 *  Para agregar una gema (tipo diciendo que dependes de esa en el proyecto), agregas al Gemfile una linea
 del estilo _gem 'colorputs'_; estas usando el comando _gem_. 
@@ -91,7 +91,7 @@ Ver --> https://stackoverflow.com/questions/9452760/rails-bundler-how-to-undo-bu
 
 * Al querer ejecutarlo haciendo _ruby prueba.rb_, sigue apareciendo un error del tipo "in 'require': cannot load such file -- colorputs(LoadError)"
 
-* Ahora, al ejecutarlo haciendo _bundle exec ruby prueba.rb_,FUNCIONA!!
+* Ahora, al ejecutarlo haciendo _bundle exec ruby prueba.rb_, FUNCIONA!
 
 * Type _bundle list_ to see the gems installed by the bundle
 
