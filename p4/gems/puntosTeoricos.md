@@ -8,7 +8,8 @@ Una gema es una librería Ruby. Se utilizan para compartir código entre desarro
 
 * Codigo (Incluido los tests)
 * Documentación
-* gemspec (Que especifica la información acerca de la gema, como su nombre, version, descripción, autor, etc).
+* gemspec (Que especifica la información acerca de la gema, como su nombre, version, descripción, autor, **dependencias**, etc).
+    *  Rubygem conventions dictate that you move the dependency declaration on these released gems form the Gemfile into your .gemspec file 
 
 
 http://guides.rubygems.org/what-is-a-gem/
@@ -23,7 +24,7 @@ Itś said: by default on your local machine, no particular difference but...
 
 This way in production, you **have clearly separated apps with their own gems.**
 
-On the other side, **gem install** gmaps4rails (easy advertisement) **gets the gem installed for your whole environment.**
+On the other side, **gem install gets the gem installed for your whole environment.**
 
 https://stackoverflow.com/questions/6162047/difference-between-bundle-and-gem-install
 
@@ -33,7 +34,7 @@ https://stackoverflow.com/questions/6162047/difference-between-bundle-and-gem-in
 
 Siguiendo con lo anterior ...
 
-Bundler es un manejador de dependencias. Sirve para agregar dependencias externas a un proyecto Ruby, se especifica en el Gemfile las librerías a utilizar, estas a su vez pueden especificar otras como dependencias, bundler se encarga de descargar todo lo necesario. Solo es necesario utilizar el comando bundle. Asegura que la aplicación que lo use tenga las dependencias necesarias para que se ejecute sin errores. `Bundler es una gema 'manejadora de gemas', que la queremos tener en el core para usar siempre: gem install bundler.`
+Bundler es un manejador de dependencias. Sirve para agregar dependencias externas a un proyecto Ruby, se especifica en el Gemfile las librerías a utilizar, estas a su vez pueden especificar otras como dependencias, bundler se encarga de descargar todo lo necesario. Solo es necesario utilizar el comando bundle. Asegura que la aplicación que lo use tenga las dependencias necesarias para que se ejecute sin errores. `Bundler es una gema 'manejadora de gemas', que la queremos tener en el core para usar siempre... la instalamos en nuestro entorno global haciendo: gem install bundler.`
 
 `Gems es el manejador de gemas por parte del ruby core. No es lo mismo instalar una gema con bundler que con gem. Bundler es externo, mientras que gem instala en el directorio del core de ruby.`
 
@@ -50,6 +51,8 @@ This will serve all your installed gems from your local machine at http://localh
 **(Al utilizar el comando gem server se mostrará en el localhost (puerto 8808) la lista de gemas instaladas en el ruby core.)**
 
 When you install new gems, they are automatically available through the built-in gem server.
+
+It can also operate as a server for installation of gems on other machines.
 
 http://guides.rubygems.org/run-your-own-gem-server/
 
@@ -112,11 +115,13 @@ http://bundler.io/gemfile.html
 
 La versión que se instaló en el sistema es la última disponible de la gema.Puede verse en el archivo Gemfile.lock que se instaló la versión 0.2.3, o utilizando el comando blundle show se listan las gemas y sus respectivas versiones. 
 
-Si se publica una nueva version, esta no sería instalada automaticamente. Tendrias que ejecutar en tu proyecto _bundle update_. __Nota:__ "In general, you should use [bundle install(1)][bundle-install] to install the same exact gems and versions across machines. You would use bundle update to explicitly update the version of a gem."
+Si se publica una nueva version, esta no sería instalada automaticamente. Tendrias que ejecutar en tu proyecto _bundle update_. __Nota:__ "In general, you should use [bundle-install] to install the same exact gems and versions across machines. You would use bundle update to explicitly update the version of a gem."
 
 Por otra parte, la forma de elegir de alguna manera la version a descargar para que sólo se instalen releases de la gema en las que no cambie la versión mayor de la mismasería por ejemplo de la siguiente manera:
 
 `gem 'colorputs', '~>0.2'` , which is equivalent to '>=0.2.0','<0.3.0'
+
+**~> --> asociado completamente al PATCH number (el ultimo)**
 
 #### d. ¿Qué ocurrió la primera vez que ejecutaste prueba.rb? ¿Por qué?
 
@@ -131,8 +136,8 @@ No encontró el archivo de la gema solicitada.
 
 #### f. ¿Qué diferencia hay entre bundle install y bundle update?
 
-* **bundle install** : Instala las dependencias especificadas en el Gemfile.
-* **bundle update** : Actualiza las librerías que se encuentran intaladas en el proyecto.
+* **bundle install** : respeta las versiones de las gemas en el archivo Gemfile.lock, si este existe. Sino, funciona igual que `bundle update`.
+* **bundle update** : ignora completamente el archivo Gemfile.lock e instala las gemas en su ultima version acorde a las restricciones del Gemfile.
 
 Here are the rules:
 * Always use bundle install
@@ -162,8 +167,7 @@ tion about this update process below under CONSERVATIVE UPDATING.
 Bundle update
 
 Update  the gems specified (all gems, if none are specified), ignoring the previously
-installed gems specified in the Gemfile.lock. In  general,  you  should  use  [bundle
-install(1)][bundle-install]  to  install  the  same  exact  gems  and versions across
+installed gems specified in the Gemfile.lock. In  general,  you  should  use [bundle-install]  to  install  the  same  exact  gems  and versions across
 machines.
 
 You would use bundle update to explicitly update the version of a gem.
