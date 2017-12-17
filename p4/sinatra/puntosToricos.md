@@ -90,11 +90,6 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 * A **Hash of headers** (responds to **each**)
 * The **response body**, which must respond to **each** 
 
-##  :loudspeaker: Sobre ENV hash ...
-
-http://www.rubydoc.info/github/rack/rack/master/file/SPEC
-http://www.rubydoc.info/github/rack/rack/master/Rack/Request
-
 
 ### Requisitos
 
@@ -145,7 +140,22 @@ This array contains 3 things:
 
 **So the method call returns something that represents an HTTP response in Rack!**
 
+##  :loudspeaker: Sobre ENV hash ...
+
 **Rack makes it so that whenever there’s a request coming in (on the computer that is localhost, i.e. your own, local computer, and on the port 9292), it will turn this request into a hash env. It will then hand us this hash by calling our method call. I.e. the hash env that is passed to us as an argument contains the request information.**
+
+Cosas que pueden ir en el env ...
+
+  * WEBrick adds the key **PATH-INFO** with the resource (path), as well as the key **REQUEST-METHOD** with the verb (method) from the HTTP request. These weren’t headers in the request, but obvioulsy part of it. 
+
+  **The most interesting bits in the env hash are the REQUEST-METHOD, and PATH-INFO.**
+
+http://webapps-for-beginners.rubymonstas.org/rack/rack_env.html
+http://www.rubydoc.info/github/rack/rack/master/file/SPEC
+http://www.rubydoc.info/github/rack/rack/master/Rack/Request
+
+MUY util para el examen, en la parte de middlewares --> http://webapps-for-beginners.rubymonstas.org/rack/method_path.html
+
 
 3. This gem comes with a little executable (command line program) called `rackup`. This command looks for a file `config.ru` in the current directory, and starts a web server using it, on your local computer.
 
