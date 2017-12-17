@@ -1,6 +1,4 @@
 require 'sinatra'
-require 'bundler'
-Bundler.require
 require_relative 'partida.rb'
 
 list = [Partida.new('hola'), Partida.new('chau'), Partida.new('test')]
