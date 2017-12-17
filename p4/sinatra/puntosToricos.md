@@ -2,7 +2,7 @@
 
 ## Puntos teoricos Sinatra
 
-### 1. ¿Qué es Rack? ¿Qué define? ¿Qué requisitos impone?
+## 1. ¿Qué es Rack? ¿Qué define? ¿Qué requisitos impone?
 
 https://medium.com/whynotio/what-is-rack-in-ruby-7e0615f1d9b6
 
@@ -101,7 +101,7 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 **NOTA:** si queres `no ponerle el nombre config.ru al archivo de tu app`, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer `require 'rack'` y abajo `Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292)`. Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hay que hacer ruby app.rb o `rackup app.rb`
 
 
-##  :loudspeaker: OBJETOS QUE PODRIAN SER 'RACKABLES'
+###  :loudspeaker: OBJETOS QUE PODRIAN SER 'RACKABLES'
 
 Aquel que posea un metodo call que recibe un hash de entorno y devuelve un array (respetando orden) con la siguiente info sobre la respuesta HTTP ...
   1. status code, hash de cabeceras http, y un objeto que implementa el mixin Enumerable (si algo implementa el mixin Enumerable sabes entiende el metodo each)
@@ -109,7 +109,7 @@ Aquel que posea un metodo call que recibe un hash de entorno y devuelve un array
   3. status code, hash de cabeceras http, y un array como body 
 ---
 
-### 2. How to build your first rack app
+## 2. How to build your first rack app
 
 1. Run in your console `gem list rack`. Does that show something like rack (1.6.1) (or any other version number)? If it doesn’t, install Rack with the command `gem install rack.`
 
@@ -140,7 +140,14 @@ This array contains 3 things:
 
 **So the method call returns something that represents an HTTP response in Rack!**
 
-##  :loudspeaker: Sobre ENV hash ...
+3. This gem comes with a little executable (command line program) called `rackup`. This command looks for a file `config.ru` in the current directory, and starts a web server using it, on your local computer.
+
+Make sure you have cded to your rack directory, and then run `rackup`. 
+
+http://webapps-for-beginners.rubymonstas.org/rack/hello_world.html
+
+
+###  :loudspeaker: Sobre ENV hash ...
 
 **Rack makes it so that whenever there’s a request coming in (on the computer that is localhost, i.e. your own, local computer, and on the port 9292), it will turn this request into a hash env. It will then hand us this hash by calling our method call. I.e. the hash env that is passed to us as an argument contains the request information.**
 
@@ -154,18 +161,11 @@ http://webapps-for-beginners.rubymonstas.org/rack/rack_env.html
 http://www.rubydoc.info/github/rack/rack/master/file/SPEC
 http://www.rubydoc.info/github/rack/rack/master/Rack/Request
 
-MUY util para el examen, en la parte de middlewares --> http://webapps-for-beginners.rubymonstas.org/rack/method_path.html
-
-
-3. This gem comes with a little executable (command line program) called `rackup`. This command looks for a file `config.ru` in the current directory, and starts a web server using it, on your local computer.
-
-Make sure you have cded to your rack directory, and then run `rackup`. 
-
-http://webapps-for-beginners.rubymonstas.org/rack/hello_world.html
+### MUY util para el examen, en la parte de middlewares --> http://webapps-for-beginners.rubymonstas.org/rack/method_path.html
 
 ---
 
-### 3. Sinatra se define como "DSL para crear aplicaciones web". ¿Qué quiere decir esto? ¿Qué es un DSL? 
+## 3. Sinatra se define como "DSL para crear aplicaciones web". ¿Qué quiere decir esto? ¿Qué es un DSL? 
 
 Domain Specific Languages: Lenguaje de programación enfocado en un dominio de aplicación en particular.
 
@@ -240,7 +240,7 @@ https://learn.co/lessons/what-is-sinatra
 
 ---
 
-### 4. How to make your first Sinatra app
+## 4. How to make your first Sinatra app
 
 1. Hacer un Gemfile que tenga `gem 'sinatra'`
 2. Parado en el dir padre de ese Gemfile, hacer desde consola `bundle install --system`, para que no se haga la carpeta vendor/bundler en el proyecto, tipo queria tener sinatra global
@@ -251,7 +251,7 @@ https://www.packtpub.com/books/content/quick-start-your-first-sinatra-applicatio
 
 ---
 
-### 6. Middlewares para Sinatra
+## 6. Middlewares para Sinatra
 
 Estan como en el medio de tu app en server y lo que se muestra. En este caso, modificaria tu respuesta.
 
@@ -269,7 +269,7 @@ end
 ```
 ---
 
-### 7. Implementa un middleware que modifique el header y se ejecute antes que el anterior.
+## 7. Implementa un middleware que modifique el header y se ejecute antes que el anterior.
 
 **NOTAS**
 1. Lo probamos haciendo: `curl -I http://localhost:9292/sum/1/2/8` para ver los headers.
@@ -290,7 +290,7 @@ end
 ```
 ---
 
-### 8. App Sinatra, juego del 'ahorcado'
+## 8. App Sinatra, juego del 'ahorcado'
 
 **NOTAS**
 1. redirect "" --> redirecciona al path dado. Ej: `"/partida/#{rand(list.size)}"`. Esta bueno para ponerlo en el index y tipo ante un get '/' do redirect 'blabla' end
