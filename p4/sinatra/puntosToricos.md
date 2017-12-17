@@ -86,9 +86,15 @@ En sinatra, es simple utilizar los middlewares Rack con el método `use`
 
 Rack es una gema que provee una interface entre WebServers y Frameworks basados en Ruby.
 To use Rack, provide an "app": an object that responds to the call method, taking the environment hash as a parameter, and returning an Array with three elements:
-* The HTTP response code. 
-* A Hash of headers.
-* The response body, which must respond to each.
+* The **HTTP status** response code **(string)**
+* A **Hash of headers** (responds to **each**)
+* The **response body**, which must respond to **each** 
+
+##  :loudspeaker: Sobre ENV hash ...
+
+http://www.rubydoc.info/github/rack/rack/master/file/SPEC
+http://www.rubydoc.info/github/rack/rack/master/Rack/Request
+
 
 ### Requisitos
 
@@ -99,6 +105,13 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 
 **NOTA:** si queres no ponerle el nombre config.ru al archivo de tu app, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer require 'rack' y abajo Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292). Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hay que hacer ruby app.rb o rackup app.rb
 
+
+##  :loudspeaker: OBJETOS QUE PODRIAN SER 'RACKABLES'
+
+Aquel que posea un metodo call que recibe un hash de entorno y devuelve un array (respetando orden) con la siguiente info sobre la respuesta HTTP ...
+  1. status code, hash de cabeceras http, y un objeto que implementa el mixin Enumerable (si algo implementa el mixin Enumerable sabes entiende el metodo each)
+  2. status code, hash de cabeceras http, y un objeto que responde al each
+  3. status code, hash de cabeceras http, y un array como body 
 ---
 
 ### 2. How to build your first rack app
@@ -120,7 +133,7 @@ end
 
 run Application.new
 ```
-We define a **class Application, (notice the name could be whichever)**, and, on the last line, **create an instance of it, which we pass to the method run**. **The method ru**n is defined by Rack, and **expects to be passed something that responds to the method call**. [1]
+We define a **class Application, (notice the name could be whichever)**, and, on the last line, **create an instance of it, which we pass to the method run**. **The method ru**n is defined by Rack, and **expects to be passed something that responds to the method call**. 
 
 **That’s why we defined a method call on our class. This method takes one argument env.** It does not use the env (whatever that is), yet, but instead just returns the same static array whenever it is called.
 
@@ -132,7 +145,7 @@ This array contains 3 things:
 
 **So the method call returns something that represents an HTTP response in Rack!**
 
-Rack makes it so that whenever there’s a request coming in (on the computer that is localhost, i.e. your own, local computer, and on the port 9292), it will turn this request into a hash env. It will then hand us this hash by calling our method call. I.e. the hash env that is passed to us as an argument contains the request information.
+**Rack makes it so that whenever there’s a request coming in (on the computer that is localhost, i.e. your own, local computer, and on the port 9292), it will turn this request into a hash env. It will then hand us this hash by calling our method call. I.e. the hash env that is passed to us as an argument contains the request information.**
 
 3. This gem comes with a little executable (command line program) called `rackup`. This command looks for a file `config.ru` in the current directory, and starts a web server using it, on your local computer.
 
