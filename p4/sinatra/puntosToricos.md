@@ -98,7 +98,7 @@ To use Rack, provide an "app": an object that responds to the call method, takin
 4. El archivo ese config.ru debe tener una clase que iplemente el metodo `call(env)`, y luego de definir esa clase, al final del archivo debemos incuir la sentencia `run ClassName.new`
 3. Desde consola y parados en el dir de nuestra app, correr `rackup` (por defecto levanta el archivo config.ru)
 
-**NOTA:** si queres no ponerle el nombre config.ru al archivo de tu app, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer require 'rack' y abajo Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292). Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hay que hacer ruby app.rb o rackup app.rb
+**NOTA:** si queres `no ponerle el nombre config.ru al archivo de tu app`, ponele el nombre que quieras tipo app.rb considerando vas a tener que hacer `require 'rack'` y abajo `Rack::Handler::WEBrick.run(YourClass.new, :Port => 9292)`. Ademas, parado en el dir de tu app no se levanta haciendo un simple 'rackup', sino que hay que hacer ruby app.rb o `rackup app.rb`
 
 
 ##  :loudspeaker: OBJETOS QUE PODRIAN SER 'RACKABLES'
@@ -175,7 +175,7 @@ DSL es un lenguaje de programación o especificación dedicado a resolver un pro
 
 ### Now, going in details with Sinatra ...
 
-As said before, Sinatra is a Domain Specific Language implemented in Ruby that's used for writing web applications. Created by Blake Mizerany, Sinatra is Rack-based, which means it can fit into any Rack-based application stack, including Rails. It's used by companies such as Apple, BBC, GitHub, LinkedIn, and more.
+As said before, Sinatra is a Domain Specific Language implemented in Ruby that's used for writing web applications. Sinatra is Rack-based, which means it can fit into any Rack-based application stack, including Rails.
 
 **Essentially, Sinatra is nothing more than some pre-written methods that we can include in our applications to turn them into Ruby web applications.**
 
@@ -189,7 +189,7 @@ Sinatra is considered a light weight framework where the responsibility of app s
 
 **The Sinatra DSL**
 
-Any application that requires the sinatra library will get access to methods like: get and post. These methods provide the ability to instantly transform a Ruby application into an application that can respond to HTTP requests.
+Any application that requires the sinatra library will get access to **methods like: get and post**. These methods **provide the ability to instantly transform a Ruby application into an application that can respond to HTTP requests.**
 
 **Basic Sinatra Applications**
 
