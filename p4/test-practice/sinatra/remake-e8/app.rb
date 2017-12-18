@@ -6,7 +6,7 @@ $conjunto << {'palabra' => 'C', 'tries' => 2, 'guessed' => [] }
 
 class App < Sinatra::Base
     
-    get '/' do
+    post '/' do
         redirect "/partida/" + rand($conjunto.size - 1).to_s
     end
     
@@ -19,7 +19,7 @@ class App < Sinatra::Base
         end
     end
     
-    get '/partida/:id/try/:intento' do |id, intento|
+    put '/partida/:id' do |id|
         if !$conjunto[id.to_i].nil?
             if $conjunto[id.to_i]['tries'] > 0
                 if $conjunto[id.to_i]['palabra'].include?(params['intento'])

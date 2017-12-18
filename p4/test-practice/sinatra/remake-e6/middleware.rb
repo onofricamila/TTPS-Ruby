@@ -5,7 +5,9 @@ class NumberToX
 
     def call(env)
         status, headers, response  = @app.call(env)
-        new_response = response.map { |c| c.gsub(/\d/,'x') }
+        # haces un map porque la respuesta es un array con una sola pos
+        # que tiene un string
+        new_response = response.map { |word| word.gsub(/\d/,'x') }
         [status, headers, new_response]
     end
 end
