@@ -14,7 +14,7 @@ Exam.create("course_id"=>1, "title"=>"Test 1", "passing_score"=>40, "date"=>'201
 Exam.create("course_id"=>1, "title"=>"Test 2", "passing_score"=>60, "date"=>'2017-11-25')
 Exam.create("course_id"=>1, "title"=>"Test 3", "passing_score"=>80, "date"=>'2017-12-25')
 Exam.create("course_id"=>2, "title"=>"Test 1", "passing_score"=>40, "date"=>'2017-11-25')
-Exam.create("course_id"=>2, "title"=>"Final Task", "passing_score"=>60, "date"=>'2017-12-25')
+Exam.create("course_id"=>2, "title"=>"Final Project", "passing_score"=>60, "date"=>'2017-12-25')
 
 Student.create("course_id"=>1, "surname"=>"Onofri", "name"=>"Camila", "number"=>137356, "dni"=>39599149, "email"=>"onofricamila@gmail.com")
 Student.create("course_id"=>1, "surname"=>"Onofri", "name"=>"Melisa", "number"=>137357, "dni"=>40123589, "email"=>"onofrimelisa@gmail.com")

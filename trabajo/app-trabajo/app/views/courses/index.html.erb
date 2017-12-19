@@ -13,8 +13,9 @@
         <tr>
           <td><%= course.year %></td>
           <td>
-              <%= link_to 'Show', course , class: 'btn btn-outline-primary'%>
-              
+              <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-outline-success' %>
+              <%= link_to 'Destroy', [course],  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-outline-danger' %>
+
               <a class="btn btn-outline-info" href="<%= course_exams_url(course) %>">
                  Exams
               </a>
