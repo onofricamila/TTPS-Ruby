@@ -9,7 +9,7 @@
 
 # :pushpin: Then, how do I run the tests?
 1. Open the console and change directory to  _app-trabajo_
-2. Run `bin/rails test`, specifying one by one each model to be tested as an argument, this way:
+2. Run `bin/rails test` to excecute all tests, or specify one by one each model to be tested as an argument, this way:
 ```sh
 bin/rails test test/models/course_test.rb
 ```
