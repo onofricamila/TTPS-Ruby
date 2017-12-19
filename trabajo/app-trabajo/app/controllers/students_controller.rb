@@ -7,10 +7,6 @@ class StudentsController < ApplicationController
     @students = @course.students.order(:surname, :name)
   end
 
-  # GET courses/1/students/1
-  def show
-  end
-
   # GET courses/1/students/new
   def new
     @student = @course.students.build

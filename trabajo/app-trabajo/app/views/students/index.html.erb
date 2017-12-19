@@ -22,7 +22,6 @@
           <td><%= student.dni %></td>
           <td><%= student.email %></td>
           <td>
-            <%= link_to 'Show', [student.course, student], class: 'btn btn-outline-primary'  %>
             <%= link_to 'Edit', edit_course_student_path(student.course, student), class: 'btn btn-outline-success'  %>
             <%= link_to 'Destroy', [student.course, student],  data: { confirm: 'Are you sure?' }, :method => :delete , class: 'btn btn-outline-danger' %>
           </td>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         post :results, to: "exams#change_results"
       end
     end
-    resources :students
+    resources :students, :except => [:show]
   end
 
   devise_for :users
