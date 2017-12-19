@@ -1,0 +1,45 @@
+<div class="container col-md-8 col-md-offset-2 ">
+    <h1>Listing Grades for <%= @exam.title %> </h1>
+    <%= form_for([@exam.course, @exam], url: results_course_exam_path(@exam.course, @exam), method: :post) do |f| %>
+        <% if @exam.errors.any? %>
+        <div id="error_explanation">
+            <h6>Oops! <%= pluralize(@exam.errors.count, "error") %> prohibited this result from being saved:</h6>
+            <ul>
+            <% @exam.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>Student</th>
+                <th>Score (proportion over 100)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= f.fields_for :results do |a|%>
+                <tr>
+                <td> <%= a.object.student %> </td>
+                <td>
+                    <div class="field">
+                        <%= a.number_field :score, class: 'form-control', style: 'width: 186px;'%>
+                        <%= a.hidden_field :id %>
+                        <%= a.hidden_field :student_id %>
+                    </div>
+                </td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    
+        <br>
+        <div class="actions">
+        <%= f.submit class: 'btn btn-outline-warning' %>
+        <%= link_to 'Back', course_exams_path(@exam.course) , class: 'btn btn-outline-dark'%>
+        </div>
+    <% end %>
+</div>
+    

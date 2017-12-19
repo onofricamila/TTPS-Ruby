@@ -12,6 +12,10 @@ class Student < ApplicationRecord
   validates :dni, :number, :email, :uniqueness => {:scope => [:course_id]}
   validates :name, :uniqueness => {:scope => [:course_id, :surname], message: "should be different, at least. There is someone in this course with that name and surname." }
   
+  def to_s
+    "#{surname}, #{name}"
+  end
+
   def attended_to? exam
     !(Result.find_by_assoc(self, exam).empty?)
   end

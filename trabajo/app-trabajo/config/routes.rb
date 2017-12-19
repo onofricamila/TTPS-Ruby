@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :courses do
+  resources :courses, :except => [:show]  do
     member do
       get :summary
     end
-
-    resources :exams do
-      resources :results
+    resources :exams, :except => [:show] do
+      member do
+        get :results
+        post :results, to: "exams#change_results"
+      end
     end
-
     resources :students
   end
 

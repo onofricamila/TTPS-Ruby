@@ -1,14 +1,24 @@
 class ExamsController < ApplicationController
   before_action :set_exams
-  before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  before_action :set_exam, only: [:show, :edit, :update, :destroy, :results, :change_results]
+
+  def results
+    @exam.course.students.each do |std|
+      @exam.results.find_or_initialize_by(student: std)
+    end
+  end
+
+  def change_results
+    if @exam.update(results_params)
+      redirect_to(results_course_exam_url(@exam.course, @exam), notice: 'Scores updated')
+    else
+      render action: 'results'
+    end
+  end
 
   # GET courses/1/exams
   def index
     @exams = @course.exams.order(:date)
-  end
-
-  # GET courses/1/exams/1
-  def show
   end
 
   # GET courses/1/exams/new
@@ -25,7 +35,7 @@ class ExamsController < ApplicationController
     @exam = @course.exams.build(exam_params)
 
     if @exam.save
-      redirect_to([@exam.course, @exam], notice: 'Exam was successfully created.')
+      redirect_to( course_exams_url(@exam.course), notice: 'Exam was successfully created.')
     else
       render action: 'new'
     end
@@ -34,7 +44,7 @@ class ExamsController < ApplicationController
   # PUT courses/1/exams/1
   def update
     if @exam.update_attributes(exam_params)
-      redirect_to([@exam.course, @exam], notice: 'Exam was successfully updated.')
+      redirect_to( course_exams_url(@exam.course), notice: 'Exam was successfully updated.')
     else
       render action: 'edit'
     end
@@ -69,5 +79,9 @@ class ExamsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def exam_params
       params.require(:exam).permit(:title, :passing_score, :date)
+    end
+
+    def results_params
+      params.require(:exam).permit(results_attributes: [:id, :score, :student_id])
     end
 end
