@@ -12,7 +12,9 @@ class Exam < ApplicationRecord
   validates :title, :uniqueness => {:scope => [:course_id]}
 
   validates :passing_score, 
-    inclusion: { in: 1..100 ,message: "should be a number between 1 and 100, representing a proportion"}
+    inclusion: { in: 0..100 ,message: "should be a number between 0 and 100, representing a proportion"}
+
+  validate :correct_year
 
   def find_total_attended
     (Result.find_total_for self).size() 
@@ -20,6 +22,11 @@ class Exam < ApplicationRecord
 
   def find_passing
     (Result.find_passing_for self).size() 
+  end
+
+  def correct_year
+    possible_years = course.year..(course.year + 1)
+    errors.add(:date, "'s year should be #{course.year} or #{course.year + 1} ") unless date.present? && (possible_years.include? date.year)
   end
 
 end
