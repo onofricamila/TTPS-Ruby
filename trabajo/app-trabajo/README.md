@@ -1,7 +1,6 @@
-## :pushpin: TTPS-Ruby Final Project, by Onofri Camila | 2017
-- - -
+# :books: TTPS-Ruby Final Project, by Onofri Camila | 2017
 
-# :pushpin: First of all, how do I run this app?
+## :pushpin: First of all, how do I run this app?
 
 1. Make sure you have `Ruby` installed in your computer, since this app was made using ruby 2.4.1p111. The gem called `bundler` is also required. You can install it by running `gem install bundler`
 2. Now open the console and change directory to  _app-trabajo_
@@ -11,7 +10,7 @@
 6. Go to http://localhost:3000/ and you will be able to log in as _'root@gmail.com'_ using the _'topsecret'_ password
 7. Explore the app! :smile:
 
-# :pushpin: Then, how do I run the tests?
+## :pushpin: Then, how do I run the tests?
 
 1. Open the console and change directory to  _app-trabajo_
 2. Run `bin/rails test` to excecute all tests, or specify one by one each model to be tested as an argument, this way:
@@ -28,7 +27,7 @@ bin/rails test test/models/result_test.rb
 bin/rails test test/models/student_test.rb
 ```
 
-# :pushpin: To be considered when using the app
+## :pushpin: To be considered when using the app
 
 * When reading the summary, pay attention to the style aplyed to students scores so as to know if a student failed or passed an exam (red with a cross stands for _failed_ whereas green and a tick stands for _passed_)
 * Each course created by default has a purpose ...
