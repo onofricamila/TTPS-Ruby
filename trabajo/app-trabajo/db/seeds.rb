@@ -9,6 +9,8 @@
 
 Course.create("year"=>2017)
 Course.create("year"=>2016)
+Course.create("year"=>2015)
+Course.create("year"=>2014)
 
 Exam.create("course_id"=>1, "title"=>"Test 1", "passing_score"=>40, "date"=>'2017-10-25')
 Exam.create("course_id"=>1, "title"=>"Test 2", "passing_score"=>60, "date"=>'2017-11-25')
@@ -26,6 +28,7 @@ Student.create("course_id"=>2, "surname"=>"Rios", "name"=>"Gaston", "number"=>15
 Student.create("course_id"=>2, "surname"=>"Pierobon", "name"=>"Marcos Matias", "number"=>1698785, "dni"=>39587456, "email"=>"mpierobon@gmail.com")
 Student.create("course_id"=>2, "surname"=>"Belenda", "name"=>"Lucas", "number"=>58987, "dni"=>3958789, "email"=>"lucasb@gmail.com")
 Student.create("course_id"=>2, "surname"=>"Brost", "name"=>"Pedro", "number"=>158789, "dni"=>395864, "email"=>"brostp@gmail.com")
+Student.create("course_id"=>3, "surname"=>"Levine", "name"=>"Adam", "number"=>158790, "dni"=>395865, "email"=>"adaml@gmail.com")
 
 Result.create("exam_id"=>1, "score"=>50, "student_id"=>5)
 Result.create("exam_id"=>1, "score"=>30, "student_id"=>4)
