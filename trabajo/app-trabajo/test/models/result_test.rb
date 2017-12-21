@@ -5,11 +5,6 @@ class ResultTest < ActiveSupport::TestCase
   setup do
     @result = results(:one)
   end
-  
-  test "should not save result without score" do
-    @result.score = nil
-    assert_not @result.save
-  end
 
   test "should not save result without student id" do
     @result.student_id = nil

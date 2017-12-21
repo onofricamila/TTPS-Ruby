@@ -18,6 +18,16 @@ class ExamTest < ActiveSupport::TestCase
       assert_not @exam.save
     end
 
+    test "should not save exam with invalid date's year" do
+      @exam.date = '2015-12-25'
+      assert_not @exam.save
+    end
+
+    test "should save exam with date's year greater than course's year by 1" do
+      @exam.date = '2018-12-25'
+      assert @exam.save
+    end
+
     test "should not save exam without passing_score" do
       @exam.passing_score = nil
       assert_not @exam.save
