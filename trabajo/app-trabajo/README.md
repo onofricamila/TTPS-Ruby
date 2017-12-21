@@ -26,7 +26,7 @@ bin/rails test test/models/student_test.rb
 
 # :pushpin: To be considered when using the app
 
-* Pay attention to the style aplyed to students scores so as to know if the student failed or passed the exam (red with a cross stands for _failed_ whereas green and a tick stands for _passed_)
+* When reading the summary, pay attention to the style aplyed to students scores so as to know if a student failed or passed an exam (red with a cross stands for _failed_ whereas green and a tick stands for _passed_)
 * Each course created by default has a purpose ...
     * Course 2014 is there to show it can be edited and erased cause it hasn't students nor exams related.
     * Course 2015 is there to show it can only be edited cause it has one student related, and no exams.
