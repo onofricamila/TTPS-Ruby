@@ -27,7 +27,7 @@ bin/rails test test/models/result_test.rb
 bin/rails test test/models/student_test.rb
 ```
 
-## :pushpin: To be considered when using the app
+## :pushpin: To be considered when using this app
 
 * When reading the summary, pay attention to the style aplyed to students scores so as to know if a student failed or passed an exam (red with a cross stands for _failed_ whereas green and a tick stands for _passed_)
 * Each course created by default has a purpose ...
