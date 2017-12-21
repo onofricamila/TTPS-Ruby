@@ -8,6 +8,7 @@
 6. Explore the app! :smile:
 
 # :pushpin: Then, how do I run the tests?
+
 1. Open the console and change directory to  _app-trabajo_
 2. Run `bin/rails test` to excecute all tests, or specify one by one each model to be tested as an argument, this way:
 ```sh
@@ -22,3 +23,7 @@ bin/rails test test/models/result_test.rb
 ```sh
 bin/rails test test/models/student_test.rb
 ```
+
+# :pushpin: To be considered when using the app
+
+* Pay attention to the style aplyed to students scores so as to know if the student failed or passed the exam (red with a cross stands for _failed_ whereas green and a tick stands for _passed_)
