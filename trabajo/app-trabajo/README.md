@@ -1,4 +1,4 @@
-# :books: TTPS-Ruby Final Project, by Onofri Camila | 2017
+# TTPS-Ruby Final Project, by Onofri Camila | 2017
 
 ## :pushpin: First of all, how do I run this app?
 
