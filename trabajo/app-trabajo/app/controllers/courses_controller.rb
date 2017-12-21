@@ -1,31 +1,36 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy, :summary]
-
+  
   # added by me so as to render the summary asked
   # GET /courses/:id/summary --> courses#summary
   def summary
   end
-
+  
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.order(year: :desc)
   end
-
+  
   # GET /courses/new
   def new
     @course = Course.new
   end
-
+  
   # GET /courses/1/edit
   def edit
+    if @course.exams.empty?
+      render 'edit'
+    else
+      redirect_to(courses_url, alert: "Course's year can not be updated cause there are exams related to this course which are going to have an invalid date")
+    end
   end
-
+  
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
+    
     respond_to do |format|
       if @course.save
         format.html { redirect_to courses_path, notice: 'Course was successfully created.' }
@@ -36,7 +41,7 @@ class CoursesController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
@@ -50,7 +55,7 @@ class CoursesController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
@@ -67,15 +72,15 @@ class CoursesController < ApplicationController
       end
     end
   end
-
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_params
-      params.require(:course).permit(:year)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:id])
+  end
+  
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def course_params
+    params.require(:course).permit(:year)
+  end
 end
