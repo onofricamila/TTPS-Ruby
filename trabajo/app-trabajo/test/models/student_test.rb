@@ -6,10 +6,6 @@ class StudentTest < ActiveSupport::TestCase
     @student = students(:one)
   end
 
-  test "should be valid" do
-    assert @student.valid?
-  end
-
   test "should not save student without a surname" do
     @student.surname = nil
     assert_not @student.save

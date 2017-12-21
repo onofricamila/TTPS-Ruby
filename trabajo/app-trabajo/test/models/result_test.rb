@@ -6,10 +6,6 @@ class ResultTest < ActiveSupport::TestCase
     @result = results(:one)
   end
   
-  test "should be valid" do
-    assert @result.valid?
-  end
-  
   test "should not save result without score" do
     @result.score = nil
     assert_not @result.save

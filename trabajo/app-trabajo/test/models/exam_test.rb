@@ -8,10 +8,6 @@ class ExamTest < ActiveSupport::TestCase
       @exam = exams(:one)
     end
   
-    test "should be valid" do
-      assert @exam.valid?
-    end
-  
     test "should not save exam without title" do
       @exam.title = nil
       assert_not @exam.save

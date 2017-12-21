@@ -6,10 +6,6 @@ class CourseTest < ActiveSupport::TestCase
     @course = courses(:one)
   end
 
-  test "should be valid" do
-    assert @course.valid?
-  end
-
   test "should not save course without a year" do
     @course.year = nil
     assert_not @course.save
