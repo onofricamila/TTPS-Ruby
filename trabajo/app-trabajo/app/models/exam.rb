@@ -5,7 +5,7 @@ class Exam < ApplicationRecord
   # we use reject if all_blank because if a blank score is submitted,
   # is it a new record that is invalid (blank name) and should cause the save to fail
   # but we wanna ignore that
-  accepts_nested_attributes_for :results,  reject_if: proc { |attributes| attributes['score'].blank? }
+  accepts_nested_attributes_for :results
 
   validates_presence_of :title, :date, :passing_score
 
