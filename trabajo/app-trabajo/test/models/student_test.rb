@@ -41,6 +41,16 @@ class StudentTest < ActiveSupport::TestCase
     assert_not @student.valid?
   end
 
+  test "dni should not have less than 7 digits" do
+    @student.dni = 123456
+    assert_not @student.valid?
+  end
+
+  test "dni should not have more than 8 digits" do
+    @student.dni = 123456789
+    assert_not @student.valid?
+  end
+
   test "number should be a number" do
     @student.number = 'lala'
     assert_not @student.valid?
