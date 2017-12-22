@@ -10,6 +10,11 @@ class ResultTest < ActiveSupport::TestCase
     @result.student_id = nil
     assert_not @result.save
   end
+
+  test "should not save result without exam id" do
+    @result.exam_id = nil
+    assert_not @result.save
+  end
   
   test "score should not be negative" do
     @result.score = -10

@@ -10,4 +10,10 @@ two:
   course: two
   title: Test 1
   passing_score: 70
+  date: 2016-12-31
+
+three:
+  course: two
+  title: Test 2
+  passing_score: 70
   date: 2017-12-31

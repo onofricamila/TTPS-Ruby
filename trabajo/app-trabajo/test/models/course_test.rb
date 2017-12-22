@@ -27,6 +27,6 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   test 'should destroy course if it has not students/exams related' do
-    assert courses(:tree).destroy
+    assert courses(:three).destroy
   end
 end

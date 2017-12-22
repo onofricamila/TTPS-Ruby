@@ -56,9 +56,17 @@ class ExamTest < ActiveSupport::TestCase
       assert exam.valid?
     end
 
-    # ---------------------------------------------------------------------------------------------------------------------------------
-    # testing interactions with other models
-    # ---------------------------------------------------------------------------------------------------------------------------------
+    test 'should not destroy exam if it has results related' do
+      assert_not @exam.destroy
+    end
+
+    test 'should destroy exam if it has not results related' do
+      assert exams(:three).destroy
+    end
+
+  # ---------------------------------------------------------------------------------------------------------------------------------
+  # testing interactions with other models
+  # ---------------------------------------------------------------------------------------------------------------------------------
 
     test "should recognize there is a student who attended to exam one" do
       # fixtures fold has a result which belongs to student one and exam one, which
