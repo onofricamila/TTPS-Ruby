@@ -3,7 +3,7 @@
 ## :pushpin: First of all, how do I run this app?
 
 1. Make sure you have `Ruby` installed in your computer, since this app was made using ruby 2.4.1p111. The gem called `bundler` is also required. You can install it by running `gem install bundler`
-2. Now open the console and change directory to  _app-trabajo_
+2. Now, open the console and change directory to  _app-trabajo_
 3. Run `bundle install` to get all the required gems
 4. Run `rake db:setup` to fill the sqlite3 db with initial data
 5. Run `bin/rails server` to start the web server
