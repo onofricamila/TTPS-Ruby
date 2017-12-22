@@ -3,8 +3,12 @@ class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy, :results, :change_results]
 
   def results
-    @exam.course.students.each do |std|
-      @exam.results.find_or_initialize_by(student: std)
+    if @exam.course.students.empty?
+      redirect_to course_exams_url(@course), alert: 'The course where this exam belongs to has no students so you cannot upload results.' 
+    else
+      @exam.course.students.each do |std|
+        @exam.results.find_or_initialize_by(student: std)
+      end
     end
   end
 
