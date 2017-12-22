@@ -2,7 +2,7 @@ class Result < ApplicationRecord
   belongs_to :exam
   belongs_to :student
 
-  validates_presence_of :student_id
+  validates_presence_of :student_id, :exam_id
 
   validate :correct_score
   
